@@ -1,0 +1,31 @@
+{# Overrides the default template of the Sonata Admin dashboard block. #}
+
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    {% for group in groups %}
+        {% set display = (group.roles is empty or is_granted('ROLE_SUPER_ADMIN') ) %}
+        {% for role in group.roles if not display %}
+            {% set display = is_granted(role)%}
+        {% endfor %}
+
+        {% if display %}
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">{{ group.label|trans({}, group.label_catalogue) }}</h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <tbody>
+                            {% for admin in group.items %}
+                                {% if admin.hasroute('create') and admin.isGranted('CREATE') or admin.hasroute('list') and admin.isGranted('LIST') %}                                    
+                                    {{ include (admin.getTemplate('dashboard_row'), { admin: admin }) }}
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

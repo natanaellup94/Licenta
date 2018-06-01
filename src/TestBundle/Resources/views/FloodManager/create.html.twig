@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheet_libs %}
+    {{ parent() }}
+
+    {% stylesheets filter='cssrewrite'
+    '@select2_css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets filter='cssrewrite'
+    'bundles/zitecformautocomplete/css/autocomplete.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+
+{% block body %}
+    {{ form(form) }}
+{% endblock %}
+
+
+{% block javascript_libs %}
+    {{ parent() }}
+
+    {% javascripts
+    '@select2_js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

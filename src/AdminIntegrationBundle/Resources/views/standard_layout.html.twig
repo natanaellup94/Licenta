@@ -1,0 +1,79 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets filter='cssrewrite' 'css/admin.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sonata_sidebar_search %} {% endblock sonata_sidebar_search %}
+
+{% block sonata_page_content_nav %}
+    {% if _tab_menu is not empty or _actions is not empty %}
+        <nav class="navbar navbar-default" role="navigation">
+            {% block tab_menu_navbar_header %}
+                {% if _navbar_title is not empty %}
+                    <div class="navbar-header">
+                        <span class="navbar-brand">{{ _navbar_title|raw }}</span>
+                    </div>
+                {% endif %}
+            {% endblock %}
+            <div class="container-fluid">
+                <div class="navbar-left">
+                    {% if _tab_menu is not empty %}
+                        {{ _tab_menu|raw }}
+                    {% endif %}
+                </div>
+
+                {% if _actions|replace({ '<li>': '', '</li>': '' })|trim is not empty %}
+                    <ul class="actions-menu nav nav-pills navbar-right">
+                        {{ _actions|raw }}
+                    </ul>
+                {% endif %}
+            </div>
+        </nav>
+
+    {% endif %}
+{% endblock sonata_page_content_nav %}
+
+{% block side_bar_after_nav %} {% endblock %}
+
+
+{% block sonata_admin_content %}
+    {% block notice %}
+        {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
+    {% endblock notice %}
+
+    {% if _preview is not empty %}
+        <div class="sonata-ba-preview">{{ _preview|raw }}</div>
+    {% endif %}
+
+    {% if _content is not empty %}
+        <div class="sonata-ba-content">{{ _content|raw }}</div>
+    {% endif %}
+
+    {% if _show is not empty %}
+        <div class="sonata-ba-show">{{ _show|raw }}</div>
+    {% endif %}
+
+    {% if _form is not empty %}
+        <div class="sonata-ba-form form-bottom">{{ _form|raw }}</div>
+    {% endif %}
+
+    {% if _list_table is not empty or _list_filters is not empty %}
+        <div class="row">           
+            {% if _list_filters|trim %}
+                <div class="sonata-ba-filter col-md-12">
+                    {{ _list_filters|raw }}
+                </div>
+            {% endif %}
+
+            <div class="sonata-ba-list col-md-12">
+                {{ _list_table|raw }}
+            </div>
+
+        </div>
+    {% endif %}
+{% endblock sonata_admin_content %}

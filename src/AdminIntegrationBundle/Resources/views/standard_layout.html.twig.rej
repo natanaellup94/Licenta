@@ -1,0 +1,9 @@
+diff a/src/AdminIntegrationBundle/Resources/views/standard_layout.html.twig b/src/AdminIntegrationBundle/Resources/views/standard_layout.html.twig	(rejected hunks)
+@@ -85,7 +85,6 @@
+         '@fundworks_app'
+         '@formatted_input'
+         '@formatted_input_init'
+-        '@disabledInputs'
+     %}
+     <script src="{{ asset_url }}"></script>
+ 

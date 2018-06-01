@@ -1,0 +1,14 @@
+# ORM definition of the User model.
+UserBundle\Entity\Group:
+    type: entity
+    table: users_groups
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    manyToMany:
+      users:
+        targetEntity: User
+        mappedBy: groups

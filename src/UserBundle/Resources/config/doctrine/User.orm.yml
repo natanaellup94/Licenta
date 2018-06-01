@@ -1,0 +1,24 @@
+# ORM definition of the User model.
+UserBundle\Entity\User:
+    type: entity
+    table: users
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    manyToMany:
+      groups:
+        targetEntity: Group
+        inversedBy: users
+        joinTable:
+          name: user_groups_associations
+          joinColumns:
+            user_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            group_id:
+              referencedColumnName: id

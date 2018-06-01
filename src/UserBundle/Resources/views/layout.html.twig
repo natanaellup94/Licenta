@@ -1,0 +1,9 @@
+{% set container_class = 'login-bg' %}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="col-md-4 col-md-offset-4">
+        {% block fos_user_content %}{% endblock %}
+   </div>
+{% endblock %}

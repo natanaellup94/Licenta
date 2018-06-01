@@ -1,0 +1,11 @@
+{% extends 'AdminIntegrationBundle:CRUD:edit.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts output='compiled/js/admin.user.edit.layout.js' filter="?jsqueeze"
+    '@UserBundle/Resources/public/js/User.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

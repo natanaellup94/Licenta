@@ -1,0 +1,17 @@
+# The bundle's custom blocks.
+services:
+    adminintegrationbundle.block.toolbar:
+        class: AdminIntegrationBundle\Block\Toolbar
+        arguments:
+            - adminintegrationbundle.block.toolbar
+            - @templating
+        tags:
+            - { name: sonata.block }
+    zitec.admin.block.tile:
+        class: AdminIntegrationBundle\Block\AdminStatsBlockService
+        arguments:
+            - zitec.admin.block.tile
+            - "@templating"
+            - "@sonata.admin.pool"
+        tags:
+            - { name: sonata.block }

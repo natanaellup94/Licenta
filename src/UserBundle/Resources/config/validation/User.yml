@@ -1,0 +1,13 @@
+UserBundle\Entity\User:
+    properties:
+        phone:
+            - Length:
+                min: 16
+                minMessage: The field should be 10 characters long
+        plainPassword:
+            - NotBlank:
+                  groups: [ Registration ]
+            - Regex:
+                pattern: '/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}/'
+                message: Password does not meet the requirements.
+                groups: [ Registration, Profile ]

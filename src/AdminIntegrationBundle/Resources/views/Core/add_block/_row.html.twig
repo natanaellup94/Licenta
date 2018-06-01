@@ -1,0 +1,7 @@
+{# Defines the generic template of a add block row, which corresponds to an entity. #}
+
+<li role="presentation">
+    <a role="menuitem" tabindex="-1" href="{{ admin.generateUrl('create')}}">
+        {{ admin.label|trans({}, admin.translationdomain) }}
+    </a>
+</li>

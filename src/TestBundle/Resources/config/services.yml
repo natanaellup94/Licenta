@@ -1,0 +1,16 @@
+services:
+    test.flood_manager.form:
+        class: TestBundle\Form\TestForm
+        tags:
+            - { name: form.type, alias: test }
+
+    test.form.autocomplete.data_resolver_test:
+        class: Zitec\FormAutocompleteBundle\DataResolver\EntitySingleDataResolver
+        arguments:
+            - '@doctrine'
+            - TestBundle\Entity\Test
+            - id
+            - name
+            - getLikeName
+        tags:
+            - { name: zitec_autocomplete_data_resolver, key: test_autocomplete }

@@ -1,0 +1,5 @@
+UserBundle\Entity\Group:
+    properties:
+            roles:
+                - NotBlank:
+                      groups: [ Registration ]

@@ -1,0 +1,38 @@
+# FOS User Bundle Configuration
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: UserBundle\Entity\User
+    group:
+        group_class:   UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+    service:
+        user_manager: sonata.user.orm.user_manager # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+        mailer: fos_user.mailer.twig_swift
+    resetting:
+        email:
+            template: UserBundle:Resetting:password_reseting.email.twig
+
+sonata_user:
+    security_acl: false
+    manager_type: orm # Can be orm or mongodb
+    table:
+        user_group: "user_groups_associations"
+
+    impersonating:
+        route: sonata_admin_dashboard
+
+    class:                  # Entity Classes
+        user:               UserBundle\Entity\User
+        group:              UserBundle\Entity\Group
+
+    admin:                  # Admin Classes
+        user:
+            class:          UserBundle\Admin\UserAdmin
+            controller:     SonataAdminBundle:CRUD
+            translation:    SonataUserBundle
+
+        group:
+            class:          UserBundle\Admin\GroupAdmin
+            controller:     SonataAdminBundle:CRUD
+            translation:    SonataUserBundle
