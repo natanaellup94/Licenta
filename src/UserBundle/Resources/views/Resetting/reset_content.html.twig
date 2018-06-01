@@ -1,20 +1,27 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}            
-    
-    
-    {% if not form.vars.valid %}
-        <div class="alert alert-danger" role="alert">
-            {{ form_errors(form.new.first) }}
+<div class="form-page col-md-4">
+    <div class="form-section">
+        {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+
+
+            {% if not form.vars.valid %}
+                <div class="alert alert-danger" role="alert">
+                    {{ form_errors(form.new.first) }}
+                </div>
+            {% endif %}
+
+        <div class="login-fields">
+            {{ form_widget(form.new.first, {'attr': {'class': 'form-control new-password-field', placeholder : 'New password:' }}) }}
+            {{ form_widget(form.new.second, {'attr': {'class': 'form-control new-password-field', placeholder : 'Repeat new password:'  }}) }}
         </div>
-    {% endif %}
 
-<div class="login-fields">
-    {{ form_widget(form.new.first, {'attr': {'class': 'form-control', placeholder : 'New password:' }}) }}
-    {{ form_widget(form.new.second, {'attr': {'class': 'form-control', placeholder : 'Repeat new password:'  }}) }}
+        <div class="new-password-helper">
+            <i class="form-hint">Your password must be at least 8 characters long with at least one number
+                and one uppercase letter.</i>
+        </div>
+        <input type="submit" value="{{ 'resetting.reset.submit'|trans }}" class="form-control btn btn-primary"/>
+
+        {{ form_end(form) }}
+    </div>
 </div>
-
-<i class="form-hint">Your password must be at least 8 characters long with at least one number and one uppercase letter.</i>
-<input type="submit" value="{{ 'resetting.reset.submit'|trans }}" class="form-control btn btn-primary"/>
-
-{{ form_end(form) }}

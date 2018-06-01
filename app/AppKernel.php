@@ -36,7 +36,8 @@ class AppKernel extends Kernel
             // Custom bundles.
             new AdminIntegrationBundle\AdminIntegrationBundle(),
             new UserBundle\UserBundle(),
-            new TestBundle\TestBundle()
+            new TestBundle\TestBundle(),
+            new FeedbackBundle\FeedbackBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

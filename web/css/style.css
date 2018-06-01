@@ -5,14 +5,26 @@
     background: url("/image/background.jpg");
 }
 .form-page{
-    margin-left: 33% !important;
-    margin-top: 10% !important;
+    margin-left: 33%;
+    margin-top: 10%;
 }
 .form-section{
     width: 400px;
     padding: 15px 30px 30px 30px;
     overflow: hidden;
     background-color: #efefef;
+}
+
+/**
+ Reset password content.
+ */
+.alert-message-section{
+    margin-left: 33%;
+    margin-top: 10%;
+}
+
+.new-password-field, .new-password-helper{
+    margin-bottom: 10px;
 }
 
 /**

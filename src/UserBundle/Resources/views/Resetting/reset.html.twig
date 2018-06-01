@@ -1,5 +1,7 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "::base.html.twig" %}
+{% set container_class = 'user-action-container' %}
+{% trans_default_domain 'FOSUserBundle' %}
 
-{% block fos_user_content %}
-{% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block content %}
+    {% include "UserBundle:Resetting:reset_content.html.twig" %}
+{% endblock content %}

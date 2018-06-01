@@ -24,6 +24,6 @@ class ResettingController extends BaseController
      */
     protected function getRedirectionUrl(UserInterface $user)
     {
-        return $this->container->get('router')->generate('sonata_admin_dashboard');
+        return $this->container->get('router')->generate('feedback_homepage');
     }
 }

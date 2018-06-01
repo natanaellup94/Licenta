@@ -1,9 +1,9 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
-
+{% extends "::base.html.twig" %}
+{% set container_class = 'user-action-container' %}
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block fos_user_content %}
-    <p class="alert alert-success">
-        {{ 'resetting.check_email'|trans({'%email%': email}) }}
-    </p>
+{% block content %}
+    <div class="col-md-4 alert-message-section">
+        <p class="alert alert-success">{{ 'resetting.check_email'|trans({'%email%': email}) }}</p>
+    </div>
 {% endblock %}
