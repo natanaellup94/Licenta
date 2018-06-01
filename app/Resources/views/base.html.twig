@@ -9,9 +9,9 @@
     {% endblock %}
 
     {% block stylesheets %}
-        {% stylesheets filter='cssrewrite'
-        'css/style.css' %}
-        <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% stylesheets filter='cssrewrite' output='compiled/css/style.css'
+            'css/style.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
 
@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=360"/>
     <meta charset="UTF-8"/>
 
-    <title>Symfony demo project 2.8</title>
+    <title>Feedback App</title>
 </head>
 
 <body class="{% if container_class is defined %}{{ container_class }}{% endif %}">
@@ -42,7 +42,6 @@
     <!-- footer -->
     {% block footer %}
         <footer class="col-md-12">
-            <p class="copyright">All Rights Reserved. © Symfony 2.8 Demo</p>
         </footer>
     {% endblock %}
     <!-- end footer -->

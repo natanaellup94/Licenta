@@ -1,0 +1,29 @@
+/**
+    UserBundle pages.
+ */
+.user-action-container{
+    background: url("/image/background.jpg");
+}
+.form-page{
+    margin-left: 33% !important;
+    margin-top: 10% !important;
+}
+.form-section{
+    width: 400px;
+    padding: 15px 30px 30px 30px;
+    overflow: hidden;
+    background-color: #efefef;
+}
+
+/**
+    Login page elements.
+*/
+.password-field{
+    margin-top: 10px;
+}
+.login-fields{
+    margin-bottom: 10px;
+}
+.login-button{
+    margin-top: 10px;
+}
