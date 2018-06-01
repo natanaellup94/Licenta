@@ -22,7 +22,6 @@ sonata_block:
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text: # used to if you plan to use Sonata user routes
         # sonata.block.advance_requests: ~
-        zitec.admin.block.tile:
 
 # Sonata Admin Configuration
 sonata_admin:

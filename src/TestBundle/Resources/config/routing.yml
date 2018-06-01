@@ -1,6 +1,0 @@
-test_homepage:
-    path:     /test-flood
-    defaults: { _controller: TestBundle:FloodManager:testFloodManager }
-test_js:
-    path:     /test-js-bundle
-    defaults: { _controller: TestBundle:JsData:jdData }

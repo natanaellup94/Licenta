@@ -7,11 +7,3 @@ services:
             - @templating
         tags:
             - { name: sonata.block }
-    zitec.admin.block.tile:
-        class: AdminIntegrationBundle\Block\AdminStatsBlockService
-        arguments:
-            - zitec.admin.block.tile
-            - "@templating"
-            - "@sonata.admin.pool"
-        tags:
-            - { name: sonata.block }
