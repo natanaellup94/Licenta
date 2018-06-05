@@ -5,3 +5,13 @@
 {% block content %}
     {% include "UserBundle:Resetting:reset_content.html.twig" %}
 {% endblock content %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@UserBundle/Resources/public/js/ResetPasswordValidator.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

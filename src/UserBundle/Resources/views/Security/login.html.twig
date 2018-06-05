@@ -10,12 +10,12 @@
                     {{ error | trans }}
                 </div>
             {% endif %}
-            <form action="{{ path("fos_user_security_check") }}" method="post">
+            <form action="{{ path("fos_user_security_check") }}" method="post" id="login-form">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
 
                 <div class="login-fields">
 
-                    <input type="text"  id="username" name="_username" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}"
+                    <input type="text" id="username" name="_username" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}"
                            value="{{ last_username }}" required="required" data-autofocus="true" class="form-control"/>
 
                     <input type="password"  id="password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}"
@@ -38,4 +38,13 @@
             </form>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+    '@UserBundle/Resources/public/js/LoginValidator.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}

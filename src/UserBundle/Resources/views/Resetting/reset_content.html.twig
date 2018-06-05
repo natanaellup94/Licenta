@@ -12,8 +12,8 @@
             {% endif %}
 
         <div class="login-fields">
-            {{ form_widget(form.new.first, {'attr': {'class': 'form-control new-password-field', placeholder : 'New password:' }}) }}
-            {{ form_widget(form.new.second, {'attr': {'class': 'form-control new-password-field', placeholder : 'Repeat new password:'  }}) }}
+            {{ form_widget(form.new.first, {'attr': {'class': 'form-control new-password-field', 'required': 'required', placeholder : 'New password:' }}) }}
+            {{ form_widget(form.new.second, {'attr': {'class': 'form-control new-password-field', 'required': 'required', placeholder : 'Repeat new password:'  }}) }}
         </div>
 
         <div class="new-password-helper">

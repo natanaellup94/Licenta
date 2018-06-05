@@ -9,7 +9,7 @@
     {% endblock %}
 
     {% block stylesheets %}
-        {% stylesheets filter='cssrewrite' output='compiled/css/style.css'
+        {% stylesheets filter='cssrewrite'
             'css/style.css' %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
@@ -49,10 +49,13 @@
 
 {% block javascript_libs %}
     {% javascripts output='compiled/js/libs.js' filter="?jsqueeze"
-    '@jquery'
-    '@bootstrap_js' %}
+        '@jquery'
+        '@bootstrap_js'
+        '@jquery_validate'
+    %}
     <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+
+{% endjavascripts %}
 
 {% endblock %}
 
