@@ -1,3 +1,11 @@
+label.error{
+    background-color: #f56954;
+    color: #fff;
+    padding: 5px 10px;
+    margin-top: 2px;
+    border-radius: 10px;
+}
+
 /**
     UserBundle pages.
  */
