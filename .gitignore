@@ -8,6 +8,11 @@
 /app/phpunit.xml
 /build/
 /vendor/
+/web/bundles/
+/web/uploads/
+/web/assetic/
+/web/compiled/
+/web/media/
 /bin/
 /composer.phar
 /.idea
