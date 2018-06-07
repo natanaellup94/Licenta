@@ -1,4 +1,4 @@
-feedback_homepage:
+homepage:
     path:     /
     defaults: { _controller: FeedbackBundle:Default:index }
 
@@ -13,3 +13,7 @@ show_goals_page:
 remove_goal_action:
     path:   /goals/remove
     defaults: { _controller: FeedbackBundle:Goal:removeGoal }
+
+edit_goal_action:
+    path:   /goals/edit/{id}
+    defaults: { _controller: FeedbackBundle:Goal:editGoal }

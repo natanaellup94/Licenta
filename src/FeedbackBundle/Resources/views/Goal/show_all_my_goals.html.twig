@@ -11,6 +11,7 @@
             <div>
               <h4>{{ goal.title }}</h4>
               <span style="float: right">
+                <a href="{{ url('edit_goal_action', {id: goal.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 <i class="fa fa-trash" data-goal-id="{{ goal.id }}" aria-hidden="true"></i>
               </span>
             </div>

@@ -5,6 +5,7 @@ namespace FeedbackBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class GoalController extends Controller
 {
@@ -51,6 +52,12 @@ class GoalController extends Controller
         return $this->render('FeedbackBundle:Goal:show_all_my_goals.html.twig', ['goals' => $goals]);
     }
 
+    /**
+     * Remove goal action.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function removeGoalAction(Request $request)
     {
         $goalId = $request->query->get('goal_id');
@@ -66,5 +73,10 @@ class GoalController extends Controller
         return new JsonResponse(array(
             'success' => true
         ));
+    }
+
+    public function editGoalAction($id)
+    {
+        return new Response();
     }
 }
