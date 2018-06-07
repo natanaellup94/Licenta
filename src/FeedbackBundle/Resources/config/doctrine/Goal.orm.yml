@@ -1,0 +1,38 @@
+FeedbackBundle\Entity\Goal:
+    type: entity
+    table: goals
+
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        title:
+            type: text
+            nullable: false
+
+        description:
+            type: text
+            nullable: false
+
+        progress:
+            type: float
+            nullable: false
+
+        startDate:
+            type: datetime
+            nullable: false
+
+        endDate:
+            type: datetime
+            nullable: false
+    manyToOne:
+        user:
+          targetEntity: UserBundle\Entity\User
+          inversedBy: goals
+          joinColumn:
+            name: user_id
+            referencedColumnName: id

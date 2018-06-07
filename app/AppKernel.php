@@ -36,7 +36,6 @@ class AppKernel extends Kernel
             // Custom bundles.
             new AdminIntegrationBundle\AdminIntegrationBundle(),
             new UserBundle\UserBundle(),
-            new TestBundle\TestBundle(),
             new FeedbackBundle\FeedbackBundle(),
         );
 
