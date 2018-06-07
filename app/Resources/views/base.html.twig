@@ -3,7 +3,8 @@
 <head>
     {% block stylesheet_libs %}
         {% stylesheets filter='cssrewrite' output='compiled/css/style_libs.css'
-        '@bootstrap' %}
+        '@bootstrap'
+        '@font_awesome' %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
@@ -50,8 +51,8 @@
 {% block javascript_libs %}
     {% javascripts output='compiled/js/libs.js' filter="?jsqueeze"
         '@jquery'
-        '@bootstrap_js'
         '@jquery_validate'
+        '@bootstrap_js'
     %}
     <script src="{{ asset_url }}"></script>
 

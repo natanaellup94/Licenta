@@ -42,7 +42,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ AdminIntegrationBundle, UserBundle, FOSUserBundle, SonataAdminBundle  ]
+    bundles:        [ AdminIntegrationBundle, UserBundle, FOSUserBundle ]
 
     filters:
         cssrewrite: ~
@@ -53,12 +53,17 @@ assetic:
             inputs:
                 - libs/css/bootstrap.css
                 - libs/css/mdb.css
+        font_awesome:
+            inputs:
+                - libs/css/font-awesome.min.css
         jquery:
             inputs:
-                - libs/js/jquery-1.11.0.min.js
+                - libs/js/jquery.min.js
         bootstrap_js:
             inputs:
-                - libs/js/bootstrap.js
+                - libs/js/bootstrap.min.js
+                - libs/js/mdb.min.js
+                - libs/js/popper.min.js
         jquery_validate:
             inputs:
                 - libs/js/jquery.validate.js
