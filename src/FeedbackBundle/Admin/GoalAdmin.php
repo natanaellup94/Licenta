@@ -6,6 +6,7 @@ use AdminIntegrationBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\AdminBundle\Show\ShowMapper;
 
 class GoalAdmin extends Admin
 {
@@ -23,12 +24,13 @@ class GoalAdmin extends Admin
     protected function configureListFields(ListMapper $list)
     {
         $list
-            ->add('title')
-            ->add('description')
-            ->add('startDate')
-            ->add('endDate')
+            ->addIdentifier('title')
             ->add('user')
-            ->add('progress');
+            ->add('progress', null, [
+                'template' => 'FeedbackBundle:Admin\Goal:list_progress_field.html.twig'
+            ])
+            ->add('startDate', 'date')
+            ->add('endDate', 'date');
     }
 
     /**

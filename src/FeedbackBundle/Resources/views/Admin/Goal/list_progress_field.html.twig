@@ -1,0 +1,8 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+    <div class="progress">
+        <div style="width: {{ value }}%; color: #0f0f0f" class="progress-bar {% if value == 100 %}{{ 'bg-success' }}{% endif %}"
+             role="progressbar" aria-valuenow="{{ value }}" aria-valuemin="0" aria-valuemax="100">{{ value }}%</div>
+    </div>
+{% endblock %}
