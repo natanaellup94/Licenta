@@ -2,14 +2,14 @@
 <html>
 <head>
     {% block stylesheet_libs %}
-        {% stylesheets filter='cssrewrite'
+        {% stylesheets filter='cssrewrite' output='compiled/css/style_libs.css'
         '@bootstrap' %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
 
     {% block stylesheets %}
-        {% stylesheets filter='cssrewrite'
+        {% stylesheets filter='cssrewrite' output='compiled/css/style_compiled.css'
             'css/style.css' %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}

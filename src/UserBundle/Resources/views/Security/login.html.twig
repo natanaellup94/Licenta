@@ -42,7 +42,8 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {% javascripts
+
+    {% javascripts output='compiled/js/login_page.js' filter="?jsqueeze"
     '@UserBundle/Resources/public/js/LoginValidator.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>

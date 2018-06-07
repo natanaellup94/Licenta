@@ -9,7 +9,7 @@
 {% block javascripts %}
     {{ parent() }}
 
-    {% javascripts
+    {% javascripts output='compiled/js/reset_password_page.js' filter="?jsqueeze"
         '@UserBundle/Resources/public/js/ResetPasswordValidator.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>

@@ -1,3 +1,7 @@
 feedback_homepage:
     path:     /
     defaults: { _controller: FeedbackBundle:Default:index }
+
+show_my_goals_section:
+    path:     /goals/show_my_goals
+    defaults: { _controller: FeedbackBundle:Goal:showMyGoals }
