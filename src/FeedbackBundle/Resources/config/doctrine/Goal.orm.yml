@@ -1,7 +1,7 @@
 FeedbackBundle\Entity\Goal:
     type: entity
     table: goals
-
+    repositoryClass: FeedbackBundle\Repository\GoalRepository
     id:
         id:
             type: integer

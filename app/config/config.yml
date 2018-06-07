@@ -42,7 +42,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ AdminIntegrationBundle, UserBundle, FOSUserBundle ]
+    bundles:        [ AdminIntegrationBundle, UserBundle, FOSUserBundle, FeedbackBundle ]
 
     filters:
         cssrewrite: ~

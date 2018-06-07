@@ -23,7 +23,7 @@ class GoalController extends Controller
         }
 
         $goalRepo = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Goal');
-        $goals = $goalRepo->findBy(array('user' => $currentUser));
+        $goals = $goalRepo->getActiveGoal($currentUser);
 
         $pageContent = $this->renderView('FeedbackBundle:Goal:show_my_goals.html.twig', array('goals' => $goals));
 

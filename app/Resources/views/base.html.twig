@@ -31,6 +31,7 @@
     <!-- header -->
     <header class="col-md-12">
         {% block header %}
+            {{ include('::header.html.twig') }}
         {% endblock %}
     </header>
     <!-- end header -->
@@ -41,10 +42,13 @@
     <!-- end content -->
 
     <!-- footer -->
-    {% block footer %}
-        <footer class="col-md-12">
-        </footer>
-    {% endblock %}
+
+    <footer class="page-footer font-small cyan darken-4 pt-4 mt-4">
+        {% block footer %}
+            {{ include('::footer.html.twig') }}
+        {% endblock %}
+    </footer>
+
     <!-- end footer -->
 {% endblock %}
 
