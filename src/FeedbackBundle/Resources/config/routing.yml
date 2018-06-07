@@ -5,3 +5,11 @@ feedback_homepage:
 show_my_goals_section:
     path:     /goals/show_my_goals
     defaults: { _controller: FeedbackBundle:Goal:showMyGoals }
+
+show_goals_page:
+    path:   /goals
+    defaults: { _controller: FeedbackBundle:Goal:myGoalsPage }
+
+remove_goal_action:
+    path:   /goals/remove
+    defaults: { _controller: FeedbackBundle:Goal:removeGoal }

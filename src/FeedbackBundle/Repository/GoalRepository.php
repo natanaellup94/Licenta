@@ -30,4 +30,24 @@ class GoalRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * Get all user's goals.
+     *
+     * @param User|null $user
+     * @return array
+     */
+    public function getGoal(User $user = null)
+    {
+        $qb = $this->createQueryBuilder('g');
+
+        if(!is_null($user)){
+            $qb->andWhere('g.user = :user');
+            $qb->setParameter('user', $user);
+        }
+
+        $qb->orderBy('g.progress','ASC');
+
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -10,7 +10,7 @@
     {% endblock %}
 
     {% block stylesheets %}
-        {% stylesheets filter='cssrewrite' output='compiled/css/style_compiled.css'
+        {% stylesheets
             'css/style.css' %}
             <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
@@ -37,8 +37,10 @@
     <!-- end header -->
 
     <!-- content -->
-    {% block content %}
-    {% endblock %}
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
     <!-- end content -->
 
     <!-- footer -->

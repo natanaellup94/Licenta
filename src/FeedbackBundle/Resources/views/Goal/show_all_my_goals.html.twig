@@ -1,0 +1,63 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+  <div class="row" style="margin-top: 25px;">
+
+      <h2 class="offset-md-5 text-center">My goals</h2>
+
+      <div class="col-md-12 show-all-goals-section">
+        {% for goal in goals %}
+          <div id="goal-element{{ goal.id }}" class="goal-element col-sm-6">
+            <div>
+              <h4>{{ goal.title }}</h4>
+              <span style="float: right">
+                <i class="fa fa-trash" data-goal-id="{{ goal.id }}" aria-hidden="true"></i>
+              </span>
+            </div>
+
+            <p><strong>Period: </strong>{{ goal.startDate|date }} - {{ goal.endDate|date }}</p>
+            <p><strong>Description: </strong>{{ goal.description }}</p>
+
+            <div class="progress">
+              <div style="width: {{ goal.progress }}%;" class="progress-bar {% if goal.progress == 100 %}{{ 'bg-success' }}{% endif %}"
+                   role="progressbar" aria-valuenow="{{ goal.progress }}" aria-valuemin="0" aria-valuemax="100">{{ goal.progress }}%</div>
+            </div>
+          </div>
+
+        {% endfor %}
+      </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade top" id="remove-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-side modal-top" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete element</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this item?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" id="remove-button">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+
+  {{ parent() }}
+
+  {% javascripts
+    '@FeedbackBundle/Resources/public/js/ShowGoalsPageController.js'
+  %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+
+{% endblock %}

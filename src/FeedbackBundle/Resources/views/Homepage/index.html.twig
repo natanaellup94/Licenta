@@ -12,7 +12,7 @@
     {{ parent() }}
 
     {% javascripts output='compiled/js/homepage_page.js' filter="?jsqueeze"
-        '@FeedbackBundle/Resources/public/js/GoalController.js'
+        '@FeedbackBundle/Resources/public/js/GoalSectionController.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
