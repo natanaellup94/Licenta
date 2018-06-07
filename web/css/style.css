@@ -1,3 +1,8 @@
+.row{
+    margin-left: 0px !important;
+    margin-right:0px !important;
+}
+
 label.error{
     background-color: #f56954;
     color: #fff;
@@ -46,4 +51,25 @@ label.error{
 }
 .login-button{
     margin-top: 10px;
+}
+
+/**
+Goal sections.
+ */
+.progress-bar{
+    color: #000;
+    font-weight: bold;
+}
+
+.goal-element{
+    margin-bottom: 15px;
+}
+
+.show-all-goals-section .goal-element{
+    float: left;
+    margin-bottom: 30px;
+}
+
+.center-title{
+    text-align: center;
 }
