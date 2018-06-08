@@ -23,11 +23,11 @@ FeedbackBundle\Entity\Goal:
             nullable: false
 
         startDate:
-            type: datetime
+            type: date
             nullable: false
 
         endDate:
-            type: datetime
+            type: date
             nullable: false
     manyToOne:
         user:

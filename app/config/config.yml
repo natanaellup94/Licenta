@@ -59,6 +59,14 @@ assetic:
         jquery:
             inputs:
                 - libs/js/jquery.min.js
+        jquery_ui_datepicker:
+            inputs:
+                - libs/js/jquery-ui-datepicker/jquery-ui.min.js
+        jquery_ui_datepciker_css:
+            inputs:
+                - libs/css/jquery-ui.min.css
+                - libs/css/jquery-ui.structure.min.css
+                - libs/css/jquery-ui.theme.min.css
         bootstrap_js:
             inputs:
                 - libs/js/bootstrap.min.js

@@ -2,10 +2,13 @@
 
 namespace FeedbackBundle\Controller;
 
+use FeedbackBundle\Entity\Goal;
+use FeedbackBundle\Form\GoalHandler;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class GoalController extends Controller
 {
@@ -75,8 +78,68 @@ class GoalController extends Controller
         ));
     }
 
-    public function editGoalAction($id)
+    public function editGoalAction(Request $request, $id)
     {
-        return new Response();
+        $em = $this->getDoctrine()->getManager();
+        $goal = $em->getRepository('FeedbackBundle:Goal')->find($id);
+
+        if(is_null($goal)){
+            throw new NotFoundHttpException('Selected goal does not exist!');
+        }
+
+        $form = $this->createForm(new GoalHandler(), $goal);
+        $form->handleRequest($request);
+
+        if($form->isValid()){
+            $goal = $form->getData();
+            $this->initGoal($goal);
+
+            $em->persist($goal);
+            $em->flush();
+
+            return $this->redirectToRoute('show_goals_page');
+        }
+
+        return $this->render('@Feedback/Goal/add_goal_page.html.twig', array('form' => $form->createView()));
+    }
+
+    /**
+     * Add goal action.
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function addGoalAction(Request $request)
+    {
+        $goal = new Goal();
+
+        $form = $this->createForm(new GoalHandler(), $goal);
+        $form->handleRequest($request);
+
+        if($form->isValid()){
+            $goal = $form->getData();
+            $this->initGoal($goal);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($goal);
+            $em->flush();
+
+            return $this->redirectToRoute('show_goals_page');
+        }
+
+        return $this->render('@Feedback/Goal/add_goal_page.html.twig', array('form' => $form->createView()));
+    }
+
+    /**
+     * Init a goal object.
+     *
+     * @param Goal $goal
+     */
+    private function initGoal(Goal $goal)
+    {
+        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
+
+        $goal->setUser($currentUser);
+        $goal->setProgress($goal->getProgress() ?? 0);
     }
 }

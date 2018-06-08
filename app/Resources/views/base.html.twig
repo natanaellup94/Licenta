@@ -4,7 +4,8 @@
     {% block stylesheet_libs %}
         {% stylesheets filter='cssrewrite' output='compiled/css/style_libs.css'
         '@bootstrap'
-        '@font_awesome' %}
+        '@font_awesome'
+        '@jquery_ui_datepciker_css' %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
@@ -29,11 +30,12 @@
 <body class="{% if container_class is defined %}{{ container_class }}{% endif %}">
 {% block body %}
     <!-- header -->
-    <header class="col-md-12">
-        {% block header %}
+    {% block header %}
+        <header class="col-md-12">
             {{ include('::header.html.twig') }}
-        {% endblock %}
-    </header>
+        </header>
+    {% endblock %}
+
     <!-- end header -->
 
     <!-- content -->
@@ -45,11 +47,12 @@
 
     <!-- footer -->
 
-    <footer class="page-footer font-small cyan darken-4 pt-4 mt-4">
-        {% block footer %}
+    {% block footer %}
+        <footer class="page-footer font-small cyan darken-4 pt-4 mt-4">
             {{ include('::footer.html.twig') }}
-        {% endblock %}
-    </footer>
+        </footer>
+    {% endblock %}
+
 
     <!-- end footer -->
 {% endblock %}
@@ -59,6 +62,7 @@
         '@jquery'
         '@jquery_validate'
         '@bootstrap_js'
+        '@jquery_ui_datepicker'
     %}
     <script src="{{ asset_url }}"></script>
 

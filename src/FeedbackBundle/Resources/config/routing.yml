@@ -17,3 +17,7 @@ remove_goal_action:
 edit_goal_action:
     path:   /goals/edit/{id}
     defaults: { _controller: FeedbackBundle:Goal:editGoal }
+
+add_goal_action:
+    path:   /goals/add
+    defaults: { _controller: FeedbackBundle:Goal:addGoal }
