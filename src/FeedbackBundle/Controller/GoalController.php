@@ -78,6 +78,13 @@ class GoalController extends Controller
         ));
     }
 
+    /**
+     * Edit goal action.
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function editGoalAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -100,7 +107,7 @@ class GoalController extends Controller
             return $this->redirectToRoute('show_goals_page');
         }
 
-        return $this->render('@Feedback/Goal/add_goal_page.html.twig', array('form' => $form->createView()));
+        return $this->render('@Feedback/Goal/edit_goal_page.html.twig', array('form' => $form->createView()));
     }
 
     /**

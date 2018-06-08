@@ -16,7 +16,7 @@
               </span>
             </div>
 
-            <p><strong>Period: </strong>{{ goal.startDate|date }} - {{ goal.endDate|date }}</p>
+            <p><strong>Period: </strong>{{ goal.startDate|date('m/d/Y') }} - {{ goal.endDate|date('m/d/Y') }}</p>
             <p><strong>Description: </strong>{{ goal.description }}</p>
 
             <div class="progress">
