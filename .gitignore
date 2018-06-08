@@ -9,6 +9,8 @@
 /build/
 /vendor/
 /web/bundles/
+/web/js/
+/web/css/
 /web/uploads/
 /web/assetic/
 /web/compiled/
