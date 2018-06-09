@@ -1,0 +1,13 @@
+FeedbackBundle\Entity\RecognitionType:
+    type: entity
+    table: recognition_types
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            nullable: false

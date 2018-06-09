@@ -10,6 +10,11 @@ UserBundle\Entity\User:
             generator:
                 strategy: AUTO
 
+    oneToMany:
+        goals:
+            targetEntity: FeedbackBundle\Entity\Goal
+            mappedBy: user
+
     manyToMany:
       groups:
         targetEntity: Group

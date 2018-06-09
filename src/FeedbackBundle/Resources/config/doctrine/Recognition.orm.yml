@@ -1,0 +1,32 @@
+FeedbackBundle\Entity\Recognition:
+    type: entity
+    table: recognitions
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        added:
+            type: date
+            nullable: false
+        description:
+            type: string
+            nullable: false
+    manyToOne:
+        to:
+          targetEntity: UserBundle\Entity\User
+          joinColumn:
+            name: to_user_id
+            referencedColumnName: id
+        from:
+            targetEntity: UserBundle\Entity\User
+            joinColumn:
+              name: from_user_id
+              referencedColumnName: id
+        type:
+            targetEntity: FeedbackBundle\Entity\RecognitionType
+            joinColumn:
+                name: type_id
+                referencedColumnName: id

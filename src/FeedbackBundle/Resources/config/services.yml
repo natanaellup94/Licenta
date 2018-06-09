@@ -9,3 +9,25 @@ services:
           - { name: sonata.admin, manager_type: orm, label: "Goal", group: "Activities" }
         calls:
           - [setTranslationDomain, [admin]]
+
+    feedback_bundle.admin.recognition_admin:
+        class: FeedbackBundle\Admin\RecognitionAdmin
+        arguments:
+            - ~
+            - FeedbackBundle\Entity\Recognition
+            - ~
+        tags:
+          - { name: sonata.admin, manager_type: orm, label: "Recognition", group: "Activities" }
+        calls:
+          - [setTranslationDomain, [admin]]
+
+    feedback_bundle.admin.recognition_type_admin:
+        class: FeedbackBundle\Admin\RecognitionTypeAdmin
+        arguments:
+            - ~
+            - FeedbackBundle\Entity\RecognitionType
+            - ~
+        tags:
+          - { name: sonata.admin, manager_type: orm, label: "Recognition type", group: "Activities" }
+        calls:
+          - [setTranslationDomain, [admin]]
