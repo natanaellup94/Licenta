@@ -31,3 +31,15 @@ services:
           - { name: sonata.admin, manager_type: orm, label: "Recognition type", group: "Activities" }
         calls:
           - [setTranslationDomain, [admin]]
+
+    feedback_bundle.event_subscriber.recognition_subscriber:
+        class: FeedbackBundle\EventSubscriber\RecognitionSubscriber
+        arguments:
+            - '@security.token_storage'
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    feedback_bundle.form.recognition_handler:
+        class: FeedbackBundle\Form\RecognitionHandler
+        arguments:
+            - '@security.token_storage'

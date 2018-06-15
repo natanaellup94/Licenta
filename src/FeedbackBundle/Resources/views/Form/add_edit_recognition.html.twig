@@ -1,0 +1,41 @@
+{% set currentValue = form.vars.value %}
+
+{{ form_start(form, {'methos': 'post', 'attr':{'class':'handler-goal-form form-horizontal'} }) }}
+
+{% if not form.vars.valid %}
+  <div class="alert alert-block alert-error fade in">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    {{ form_errors(form.description) }}
+    {{ form_errors(form.type) }}
+    {{ form_errors(form.to) }}
+  </div>
+{% endif %}
+
+<div class="control-group">
+  {{ form_label(form.description, null, {'label_attr': {'class': 'control-label'}}) }}
+  <div class="controls">
+    {{ form_widget (form.description, { attr : { class :"form-control" } }) }}
+  </div>
+</div>
+
+<div class="control-group">
+  {{ form_label(form.type, null, {'label_attr': {'class': 'control-label'}}) }}
+  <div class="controls">
+    {{ form_widget (form.type, { attr : { class :"form-control" } }) }}
+  </div>
+</div>
+
+<div class="control-group">
+  {{ form_label(form.to, null, {'label_attr': {'class': 'control-label'}}) }}
+  <div class="controls">
+    {{ form_widget (form.to, { attr : { class :"form-control" } }) }}
+  </div>
+</div>
+
+<div class="control-group">
+  <div class="controls">
+    <input class="form-control btn btn-success" type="submit" id="_submit" name="_submit"
+           value="{% if currentValue.id is null %}{{ 'Add a new recognition' }}{% else %}{{ 'Edit current recognition' }}{% endif %}"/>
+  </div>
+</div>
+{{ form_end(form) }}

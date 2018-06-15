@@ -21,3 +21,15 @@ edit_goal_action:
 add_goal_action:
     path:   /goals/add
     defaults: { _controller: FeedbackBundle:Goal:addGoal }
+
+add_recognition_action:
+    path:   /recognition/add
+    defaults: { _controller: FeedbackBundle:Recognition:add }
+
+edit_recognition_action:
+    path:   /recognition/edit/{id}
+    defaults: { _controller: FeedbackBundle:Recognition:edit }
+
+remove_recognition_action:
+    path:   /recognition/remove
+    defaults: { _controller: FeedbackBundle:Recognition:remove }
