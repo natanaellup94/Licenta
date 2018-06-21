@@ -10,10 +10,53 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RecognitionController extends Controller
 {
+    /**
+     * Number of recognitions for page.
+     */
+    const NUMBER_OF_RECOGNITION_FOR_PAGE = 10;
 
+    /**
+     * List action.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function listAction(Request $request)
     {
+        $recognitionRepo = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Recognition');
+        $recognitions = $recognitionRepo->findBy(array(), array('added' => 'DESC'), 10);
 
+        $pageContent = $this->renderView('@Feedback/Recognition/show_recognitions.html.twig',
+                array('recognitions' => $recognitions));
+
+        return new JsonResponse(array(
+            'pageContent' => $pageContent
+        ));
+    }
+
+    /**
+     * My recognitions page.
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response|\Symfony\Component\Security\Core\Exception\AccessDeniedException
+     */
+    public function myRecognitionAction(Request $request)
+    {
+        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
+
+        if(is_null($currentUser)){
+            return $this->createAccessDeniedException('Access denied');
+        }
+
+        $recognitionRepo        = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Recognition');
+
+        $receivedRecognitions   = $recognitionRepo->findBy(array('to' => $currentUser), array('added' => "DESC"));
+        $sentRecognitions       = $recognitionRepo->findBy(array('from' => $currentUser), array('added' => "DESC"));
+
+        return $this->render('@Feedback/Recognition/my_recognition.html.twig', array(
+            'receivedRecognitions' => $receivedRecognitions,
+            'sentRecognitions'     => $sentRecognitions )
+        );
     }
 
     /**

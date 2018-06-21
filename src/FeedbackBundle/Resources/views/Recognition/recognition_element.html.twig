@@ -1,0 +1,18 @@
+<div class="recognition-element">
+  <div class="recognition row">
+    <div class="left-content col-md-5">
+        <h2 style="color: #0855a1;">{{ recognition.to.username }}</h2>
+        <p>was recognition for</p>
+        <h4 style="color: #0855a1;">{{ recognition.type.type }}</h4>
+    </div>
+    <div class="right-content col-md-7">
+      <i class="fa fa-thumbs-up" aria-hidden="true" style="font-size: 2.5em;margin-bottom: 5px;"></i>
+      <p>{{ recognition.description }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <p class="col-md-6" style="text-align: left!important;">Date: <strong>{{ recognition.added|date('m/d/Y') }}</strong></p>
+    <p class="col-md-6" style="text-align: right!important;">Added by: <strong>{{ recognition.from.username }}</strong></p>
+  </div>
+  <hr style="margin-top: -10px;">
+</div>

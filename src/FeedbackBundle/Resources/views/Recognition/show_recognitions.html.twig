@@ -1,0 +1,3 @@
+{% for recognition in recognitions %}
+    {{ include('@Feedback/Recognition/recognition_element.html.twig', {recognition: recognition}) }}
+{% endfor %}

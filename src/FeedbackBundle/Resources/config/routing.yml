@@ -33,3 +33,11 @@ edit_recognition_action:
 remove_recognition_action:
     path:   /recognition/remove
     defaults: { _controller: FeedbackBundle:Recognition:remove }
+
+list_recognition_action:
+    path:   /recognition/list
+    defaults: { _controller: FeedbackBundle:Recognition:list }
+
+show_my_recognition_action:
+    path:   /recognition/my-elements
+    defaults: { _controller: FeedbackBundle:Recognition:myRecognition }

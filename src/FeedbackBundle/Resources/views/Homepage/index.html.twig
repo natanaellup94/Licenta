@@ -5,6 +5,10 @@
         <div class="col-md-6">
             <div id="goals-section"> </div>
         </div>
+
+        <div class="col-md-6">
+            <div id="recognitions-section"> </div>
+        </div>
     </div>
 {% endblock content %}
 
@@ -13,6 +17,7 @@
 
     {% javascripts output='compiled/js/homepage_page.js' filter="?jsqueeze"
         '@FeedbackBundle/Resources/public/js/GoalSectionController.js'
+        '@FeedbackBundle/Resources/public/js/RecognitionSectionController.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="row">
+      <div class="col-md-6">
+          {% for recognition in sentRecognitions %}
+            {{ include('@Feedback/Recognition/recognition_element.html.twig', {recognition: recognition}) }}
+          {% endfor %}
+      </div>
+
+      <div class="col-md-6">
+        {% for recognition in receivedRecognitions %}
+          {{ include('@Feedback/Recognition/recognition_element.html.twig', {recognition: recognition}) }}
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}
