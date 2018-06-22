@@ -11,3 +11,6 @@ FeedbackBundle\Entity\RecognitionType:
         type:
             type: string
             nullable: false
+        icon:
+            type: string
+            nullable: false

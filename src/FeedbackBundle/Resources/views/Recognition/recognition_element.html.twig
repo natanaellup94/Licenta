@@ -1,4 +1,4 @@
-<div class="recognition-element">
+<div id="recognition{{ recognition.id }}"class="recognition-element">
   <div class="recognition row">
     <div class="left-content col-md-5">
         <h2 style="color: #0855a1;">{{ recognition.to.username }}</h2>
@@ -6,7 +6,15 @@
         <h4 style="color: #0855a1;">{{ recognition.type.type }}</h4>
     </div>
     <div class="right-content col-md-7">
-      <i class="fa fa-thumbs-up" aria-hidden="true" style="font-size: 2.5em;margin-bottom: 5px;"></i>
+
+      {% if showActions is defined and showActions == TRUE %}
+          <span style="float: right">
+              <a href="{{ url('edit_recognition_action', {id: recognition.id}) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <i class="fa fa-trash" data-recognition-id="{{ recognition.id }}" aria-hidden="true"></i>
+          </span>
+      {% endif %}
+
+      <i class="{{ recognition.type.icon }}" aria-hidden="true" style="font-size: 2.5em;margin-bottom: 5px;"></i>
       <p>{{ recognition.description }}</p>
     </div>
   </div>

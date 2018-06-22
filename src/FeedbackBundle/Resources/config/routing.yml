@@ -39,5 +39,8 @@ list_recognition_action:
     defaults: { _controller: FeedbackBundle:Recognition:list }
 
 show_my_recognition_action:
-    path:   /recognition/my-elements
+    path:   /recognition/my-recognitions
     defaults: { _controller: FeedbackBundle:Recognition:myRecognition }
+
+show_company_recognition_action:
+    path:  /recognition/company-recognitions

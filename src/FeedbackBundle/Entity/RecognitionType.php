@@ -15,6 +15,11 @@ class RecognitionType
     protected $type;
 
     /**
+     * @var string
+     */
+    protected $icon;
+
+    /**
      * @return int
      */
     public function getId()
@@ -37,6 +42,24 @@ class RecognitionType
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param string $icon
+     * @return RecognitionType
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
         return $this;
     }
 

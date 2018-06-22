@@ -26,10 +26,11 @@
 
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Personal Feedback</a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recognitions</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Graphical</a>
-                        <a class="dropdown-item" href="#">Analytic action</a>
+                        <a class="dropdown-item" href="{{ url('add_recognition_action') }}">Add recognition</a>
+                        <a class="dropdown-item" href="{{ url('show_my_recognition_action') }}">My recognitions</a>
+                        <a class="dropdown-item" href="{{ url('show_company_recognition_action') }}">Company recognitions</a>
                     </div>
                 </li>
 

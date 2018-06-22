@@ -13,7 +13,7 @@ class RecognitionController extends Controller
     /**
      * Number of recognitions for page.
      */
-    const NUMBER_OF_RECOGNITION_FOR_PAGE = 10;
+    const NUMBER_OF_RECOGNITION_FOR_PAGE = 3;
 
     /**
      * List action.
@@ -24,7 +24,7 @@ class RecognitionController extends Controller
     public function listAction(Request $request)
     {
         $recognitionRepo = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Recognition');
-        $recognitions = $recognitionRepo->findBy(array(), array('added' => 'DESC'), 10);
+        $recognitions = $recognitionRepo->findBy(array(), array('added' => 'DESC'), self::NUMBER_OF_RECOGNITION_FOR_PAGE);
 
         $pageContent = $this->renderView('@Feedback/Recognition/show_recognitions.html.twig',
                 array('recognitions' => $recognitions));
