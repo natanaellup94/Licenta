@@ -3,6 +3,10 @@
     margin-right:0px !important;
 }
 
+header{
+    margin-bottom: 55px;
+}
+
 label.error{
     background-color: #f56954;
     color: #fff;
