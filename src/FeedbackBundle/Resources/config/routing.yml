@@ -43,4 +43,5 @@ show_my_recognition_action:
     defaults: { _controller: FeedbackBundle:Recognition:myRecognition }
 
 show_company_recognition_action:
-    path:  /recognition/company-recognitions
+    path:  /recognition/company-recognitions/{page}
+    defaults: { _controller: FeedbackBundle:Recognition:companyRecognitions, page: 1}

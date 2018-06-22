@@ -13,7 +13,12 @@ class RecognitionController extends Controller
     /**
      * Number of recognitions for page.
      */
-    const NUMBER_OF_RECOGNITION_FOR_PAGE = 3;
+    const NUMBER_OF_RECOGNITION_FOR_HOMEPAGE    = 3;
+
+    /**
+     * Number of recognition for a page.
+     */
+    const NUMBER_OF_RECOGNITION_FOR_A_PAGE      = 5;
 
     /**
      * List action.
@@ -24,7 +29,8 @@ class RecognitionController extends Controller
     public function listAction(Request $request)
     {
         $recognitionRepo = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Recognition');
-        $recognitions = $recognitionRepo->findBy(array(), array('added' => 'DESC'), self::NUMBER_OF_RECOGNITION_FOR_PAGE);
+        $recognitions = $recognitionRepo->findBy(array(),
+            array('added' => 'DESC'), self::NUMBER_OF_RECOGNITION_FOR_HOMEPAGE);
 
         $pageContent = $this->renderView('@Feedback/Recognition/show_recognitions.html.twig',
                 array('recognitions' => $recognitions));
@@ -138,6 +144,35 @@ class RecognitionController extends Controller
 
         return new JsonResponse(array(
             'success' => true
+        ));
+    }
+
+    /**
+     * Show company recognitions.
+     *
+     * @param Request $request
+     * @param $page
+     */
+    public function companyRecognitionsAction(Request $request, $page)
+    {
+        $recognitionRepo = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Recognition');
+        $allRecognitions = $recognitionRepo->findAll();
+
+        $noOfRecognitions = count($allRecognitions);
+
+        $currentRecognitions = $recognitionRepo->findBy(
+            array(), array('added' => 'DESC'), self::NUMBER_OF_RECOGNITION_FOR_A_PAGE, self::NUMBER_OF_RECOGNITION_FOR_A_PAGE * ($page - 1));
+
+        if($noOfRecognitions % self::NUMBER_OF_RECOGNITION_FOR_A_PAGE){
+            $noOfPages = ($noOfRecognitions / self::NUMBER_OF_RECOGNITION_FOR_A_PAGE) + 1;
+        }else{
+            $noOfPages = ($noOfRecognitions / self::NUMBER_OF_RECOGNITION_FOR_A_PAGE);
+        }
+
+        return $this->render('@Feedback/Recognition/company_recognitions.html.twig', array(
+            'currentPage'           => $page,
+            "noOfPages"             => $noOfPages,
+            "currentRecognitions"   => $currentRecognitions
         ));
     }
 }
