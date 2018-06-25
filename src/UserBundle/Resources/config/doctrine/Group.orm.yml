@@ -8,6 +8,11 @@ UserBundle\Entity\Group:
             id: true
             generator:
                 strategy: AUTO
+    oneToMany:
+        baseQuestions:
+            targetEntity: FeedbackBundle\Entity\BaseQuestion
+            mappedBy: group
+
     manyToMany:
       users:
         targetEntity: User

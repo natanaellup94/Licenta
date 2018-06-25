@@ -1,0 +1,27 @@
+FeedbackBundle\Entity\BaseQuestion:
+    type: entity
+    table: base_questions
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    fields:
+        text:
+            type: text
+            nullable: false
+        abilityType:
+            type: integer
+            nullable: false
+        weight:
+            type: integer
+            nullable: false
+    manyToOne:
+        group:
+          targetEntity: UserBundle\Entity\Group
+          inversedBy: baseQuestions
+          joinColumn:
+            name: group_id
+            referencedColumnName: id

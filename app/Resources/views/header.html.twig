@@ -37,16 +37,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('show_goals_page') }}">My goals</a>
                 </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('sonata_admin_dashboard') }}">Admin panel</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
-        <!-- Collapsible content -->
-        <div class="pull-right">
-            Hy, {{ app.user.username }}
+        {% if app.user is defined %}
+            <!-- Collapsible content -->
+            <div class="pull-right">
+                Hy, {{ app.user.username }}
 
-            <a href="{{ url(('fos_user_security_logout')) }}">
-                <button class="btn btn-danger">Log out</button>
-            </a>
-        </div>
+                <a href="{{ url(('fos_user_security_logout')) }}">
+                    <button class="btn btn-danger">Log out</button>
+                </a>
+            </div>
+        {% endif %}
     </nav>
     <!--/.Navbar-->
 </div>

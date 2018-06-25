@@ -32,10 +32,26 @@ services:
         calls:
           - [setTranslationDomain, [admin]]
 
+    feedback_bundle.admin.session_admin:
+        class: FeedbackBundle\Admin\SessionAdmin
+        arguments:
+            - ~
+            - FeedbackBundle\Entity\Session
+            - ~
+        tags:
+          - { name: sonata.admin, manager_type: orm, label: "Feedback session", group: "Activities" }
+        calls:
+          - [setTranslationDomain, [admin]]
+
     feedback_bundle.event_subscriber.recognition_subscriber:
         class: FeedbackBundle\EventSubscriber\RecognitionSubscriber
         arguments:
             - '@security.token_storage'
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+
+    feedback_bundle.event_subscriber.session_subscriber:
+        class: FeedbackBundle\EventSubscriber\SessionSubscriber
         tags:
             - { name: doctrine.event_subscriber, connection: default }
 

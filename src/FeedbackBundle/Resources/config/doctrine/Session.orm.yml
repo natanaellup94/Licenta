@@ -1,0 +1,29 @@
+FeedbackBundle\Entity\Session:
+    type: entity
+    table: sessions
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        status:
+            type: integer
+            nullable: false
+        added:
+            type: date
+            nullable: false
+    manyToOne:
+        to:
+          targetEntity: UserBundle\Entity\User
+          inversedBy: toSession
+          joinColumn:
+            name: to_user_id
+            referencedColumnName: id
+        from:
+            targetEntity: UserBundle\Entity\User
+            inversedBy: fromSession
+            joinColumn:
+              name: from_user_id
+              referencedColumnName: id

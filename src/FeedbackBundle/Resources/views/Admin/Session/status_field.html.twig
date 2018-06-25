@@ -1,0 +1,7 @@
+{% extends admin.getTemplate('base_list_field') %}
+
+{% block field%}
+  <div class="status status-{{ object.statusLabel }}">
+      {{ object.statusLabel }}
+  </div>
+{% endblock %}
