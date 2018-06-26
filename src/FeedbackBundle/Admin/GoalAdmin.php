@@ -11,20 +11,25 @@ use Sonata\AdminBundle\Show\ShowMapper;
 class GoalAdmin extends Admin
 {
     /**
+     * Remove following routes: create, edit and remove.
+     *
      * @param RouteCollection $collection
      */
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->clearExcept(['list', 'export']);
+        $collection->clearExcept(['list']);
     }
 
     /**
+     * Configure list mapper fields. Show information for each goal object.
+     * For progress field create a custom template. This template show progress bar information.
+     *
      * @param ListMapper $list
      */
     protected function configureListFields(ListMapper $list)
     {
         $list
-            ->addIdentifier('title')
+            ->add('title')
             ->add('user')
             ->add('progress', null, [
                 'template' => 'FeedbackBundle:Admin\Goal:list_progress_field.html.twig'

@@ -15,9 +15,6 @@ FeedbackBundle\Entity\BaseQuestion:
         abilityType:
             type: integer
             nullable: false
-        weight:
-            type: integer
-            nullable: false
     manyToOne:
         group:
           targetEntity: UserBundle\Entity\Group

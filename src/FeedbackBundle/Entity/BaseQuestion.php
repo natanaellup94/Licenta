@@ -10,8 +10,20 @@ class BaseQuestion
     const COMMUNICATION_ABILITY = 1;
     const COMMUNICATION_ABILITY_LABEL = 'Communication';
 
-    const KNOWLEDGE_ABILITY = 2;
-    const KNOWLEDGE_ABILITY_LABEL = 'Knowledge';
+    const KNOWLEDGE_SHARING_ABILITY = 2;
+    const KNOWLEDGE_SHARING_ABILITY_LABEL = 'Knowledge sharing';
+
+    const EXECUTION_ABILITY = 3;
+    const EXECUTION_ABILITY_LABEL = 'Execution';
+
+    const TAKING_OVER_RESPONSABILITY_ABILITY = 4;
+    const TAKING_OVER_RESPONSABILITY_ABILITY_LABEL = 'Taking over responsability';
+
+    const TEAM_SPIRIT_ABILITY = 5;
+    const TEAM_SPIRIT_ABILITY_LABEL = 'Team spirit';
+
+    const OPEN_MINDEDNESS_ABILITY = 6;
+    const OPEN_MINDEDNESS_ABILITY_LABEL = 'Open mindedness';
 
     /**
      * @var integer
@@ -27,11 +39,6 @@ class BaseQuestion
      * @var integer
      */
     private $abilityType;
-
-    /**
-     * @var integer
-     */
-    private $weight;
 
     /**
      * @var Group
@@ -83,24 +90,6 @@ class BaseQuestion
     }
 
     /**
-     * @return int
-     */
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @param int $weight
-     * @return BaseQuestion
-     */
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-        return $this;
-    }
-
-    /**
      * @return Group
      */
     public function getGroup()
@@ -138,8 +127,12 @@ class BaseQuestion
     public static function getAbilityLabels()
     {
         return array(
-            self::COMMUNICATION_ABILITY => self::COMMUNICATION_ABILITY_LABEL,
-            self::KNOWLEDGE_ABILITY     => self::KNOWLEDGE_ABILITY_LABEL
+            self::COMMUNICATION_ABILITY         => self::COMMUNICATION_ABILITY_LABEL,
+            self::KNOWLEDGE_SHARING_ABILITY     => self::KNOWLEDGE_SHARING_ABILITY_LABEL,
+            self::EXECUTION_ABILITY             => self::EXECUTION_ABILITY_LABEL,
+            self::TAKING_OVER_RESPONSABILITY_ABILITY    => self::TAKING_OVER_RESPONSABILITY_ABILITY_LABEL,
+            self::TEAM_SPIRIT_ABILITY           => self::TEAM_SPIRIT_ABILITY_LABEL,
+            self::OPEN_MINDEDNESS_ABILITY       => self::OPEN_MINDEDNESS_ABILITY_LABEL
         );
     }
 }

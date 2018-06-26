@@ -148,27 +148,31 @@ class RecognitionController extends Controller
     }
 
     /**
-     * Show company recognitions.
+     * Show all company recognitions by pagination.
      *
      * @param Request $request
      * @param $page
      */
     public function companyRecognitionsAction(Request $request, $page)
     {
+        // get recognition repository
         $recognitionRepo = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Recognition');
+        // get all recognitions from database
         $allRecognitions = $recognitionRepo->findAll();
-
+        // initialize this variable by number of recognitions
         $noOfRecognitions = count($allRecognitions);
-
+        // obtain available recognitions for current page
         $currentRecognitions = $recognitionRepo->findBy(
             array(), array('added' => 'DESC'), self::NUMBER_OF_RECOGNITION_FOR_A_PAGE, self::NUMBER_OF_RECOGNITION_FOR_A_PAGE * ($page - 1));
 
+        // calculate number of pages for comapany recognitions
         if($noOfRecognitions % self::NUMBER_OF_RECOGNITION_FOR_A_PAGE){
             $noOfPages = ($noOfRecognitions / self::NUMBER_OF_RECOGNITION_FOR_A_PAGE) + 1;
         }else{
             $noOfPages = ($noOfRecognitions / self::NUMBER_OF_RECOGNITION_FOR_A_PAGE);
         }
 
+        // render template for current page
         return $this->render('@Feedback/Recognition/company_recognitions.html.twig', array(
             'currentPage'           => $page,
             "noOfPages"             => $noOfPages,

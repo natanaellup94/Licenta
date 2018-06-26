@@ -43,6 +43,17 @@ services:
         calls:
           - [setTranslationDomain, [admin]]
 
+    feedback_bundle.admin.base_question_admin:
+        class: FeedbackBundle\Admin\BaseQuestionAdmin
+        arguments:
+            - ~
+            - FeedbackBundle\Entity\BaseQuestion
+            - ~
+        tags:
+          - { name: sonata.admin, manager_type: orm, label: "Base question", show_in_dashboard: false, group: "Activities" }
+        calls:
+          - [setTranslationDomain, [admin]]
+
     feedback_bundle.event_subscriber.recognition_subscriber:
         class: FeedbackBundle\EventSubscriber\RecognitionSubscriber
         arguments:
