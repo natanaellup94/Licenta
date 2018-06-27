@@ -24,7 +24,8 @@ class BaseQuestionAdmin extends Admin
     {
         $list
             ->add('text')
-            ->add('abilityTypeLabel');
+            ->add('abilityLabel',null, array('label' => 'Ability'))
+            ->add('group');
     }
 
     /**
@@ -34,6 +35,7 @@ class BaseQuestionAdmin extends Admin
     {
         $form
             ->add('text')
+            ->add('group')
             ->add('abilityType', 'choice', array(
                 'label' => 'Ability',
                 'choices' => BaseQuestion::getAbilityLabels()

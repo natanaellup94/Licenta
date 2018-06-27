@@ -50,7 +50,7 @@ services:
             - FeedbackBundle\Entity\BaseQuestion
             - ~
         tags:
-          - { name: sonata.admin, manager_type: orm, label: "Base question", show_in_dashboard: false, group: "Activities" }
+          - { name: sonata.admin, manager_type: orm, label: "Question", group: "Activities" }
         calls:
           - [setTranslationDomain, [admin]]
 

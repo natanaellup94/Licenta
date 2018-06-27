@@ -135,4 +135,16 @@ class BaseQuestion
             self::OPEN_MINDEDNESS_ABILITY       => self::OPEN_MINDEDNESS_ABILITY_LABEL
         );
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        if(!is_null($this->text)){
+            return $this->text;
+        }
+
+        return '';
+    }
 }

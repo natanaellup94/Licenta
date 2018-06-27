@@ -38,6 +38,36 @@ class Session
     private $added;
 
     /**
+     * @var float
+     */
+    private $communicationAbilityAverage;
+
+    /**
+     * @var float
+     */
+    private $knowledgeShareAbilityAverage;
+
+    /**
+     * @var float
+     */
+    private $executionAbilityAverage;
+
+    /**
+     * @var float
+     */
+    private $takingOverResponsabilityAbilityAverage;
+
+    /**
+     * @var float
+     */
+    private $teamSpiritAbilityAverage;
+
+    /**
+     * @var float
+     */
+    private $openMindednessAbilityAverage;
+
+    /**
      * @return int
      */
     public function getId()
@@ -114,6 +144,114 @@ class Session
     public function setAdded($added)
     {
         $this->added = $added;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCommunicationAbilityAverage()
+    {
+        return $this->communicationAbilityAverage;
+    }
+
+    /**
+     * @param float $communicationAbilityAverage
+     * @return Session
+     */
+    public function setCommunicationAbilityAverage($communicationAbilityAverage)
+    {
+        $this->communicationAbilityAverage = $communicationAbilityAverage;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getKnowledgeShareAbilityAverage()
+    {
+        return $this->knowledgeShareAbilityAverage;
+    }
+
+    /**
+     * @param float $knowledgeShareAbilityAverage
+     * @return Session
+     */
+    public function setKnowledgeShareAbilityAverage($knowledgeShareAbilityAverage)
+    {
+        $this->knowledgeShareAbilityAverage = $knowledgeShareAbilityAverage;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getExecutionAbilityAverage()
+    {
+        return $this->executionAbilityAverage;
+    }
+
+    /**
+     * @param float $executionAbilityAverage
+     * @return Session
+     */
+    public function setExecutionAbilityAverage($executionAbilityAverage)
+    {
+        $this->executionAbilityAverage = $executionAbilityAverage;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTakingOverResponsabilityAbilityAverage()
+    {
+        return $this->takingOverResponsabilityAbilityAverage;
+    }
+
+    /**
+     * @param float $takingOverResponsabilityAbilityAverage
+     * @return Session
+     */
+    public function setTakingOverResponsabilityAbilityAverage($takingOverResponsabilityAbilityAverage)
+    {
+        $this->takingOverResponsabilityAbilityAverage = $takingOverResponsabilityAbilityAverage;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTeamSpiritAbilityAverage()
+    {
+        return $this->teamSpiritAbilityAverage;
+    }
+
+    /**
+     * @param float $teamSpiritAbilityAverage
+     * @return Session
+     */
+    public function setTeamSpiritAbilityAverage($teamSpiritAbilityAverage)
+    {
+        $this->teamSpiritAbilityAverage = $teamSpiritAbilityAverage;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getOpenMindednessAbilityAverage()
+    {
+        return $this->openMindednessAbilityAverage;
+    }
+
+    /**
+     * @param float $openMindednessAbilityAverage
+     * @return Session
+     */
+    public function setOpenMindednessAbilityAverage($openMindednessAbilityAverage)
+    {
+        $this->openMindednessAbilityAverage = $openMindednessAbilityAverage;
         return $this;
     }
 

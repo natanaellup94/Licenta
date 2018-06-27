@@ -14,6 +14,24 @@ FeedbackBundle\Entity\Session:
         added:
             type: date
             nullable: false
+        communicationAbilityAverage:
+            type: float
+            nullable: true
+        knowledgeShareAbilityAverage:
+            type: float
+            nullable: true
+        executionAbilityAverage:
+            type: float
+            nullable: true
+        takingOverResponsabilityAbilityAverage:
+            type: float
+            nullable: true
+        teamSpiritAbilityAverage:
+            type: float
+            nullable: true
+        openMindednessAbilityAverage:
+            type: float
+            nullable: true
     manyToOne:
         to:
           targetEntity: UserBundle\Entity\User
