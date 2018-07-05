@@ -1,3 +1,26 @@
 .progress .progress-bar.bg-success{
     background-color: #00c851!important;
 }
+
+.status {
+     color: white;
+     display: inline-block;
+     padding: .2em .6em .3em;
+     font-size: 95%;
+     font-weight: 700;
+     line-height: 1;
+     color: #fff;
+     text-align: center;
+     white-space: nowrap;
+     vertical-align: baseline;
+     border-radius: .25em;
+     min-width: 4em;
+}
+
+.status-new {
+    background-color: #5bc0de;
+}
+
+.status-finalized {
+    background-color: #5cb85c;
+}

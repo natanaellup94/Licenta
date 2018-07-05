@@ -10,12 +10,19 @@ namespace FeedbackBundle\Admin;
 
 use AdminIntegrationBundle\Admin\Admin;
 use FeedbackBundle\Entity\BaseQuestion;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 class BaseQuestionAdmin extends Admin
 {
-    protected $parentAssociationMapping = 'group';
+
+    public function configureDatagridFilters(DatagridMapper $filter)
+    {
+        $filter
+            ->add('text')
+            ->add('group');
+    }
 
     /**
      * @param ListMapper $list
@@ -23,7 +30,7 @@ class BaseQuestionAdmin extends Admin
     public function configureListFields(ListMapper $list)
     {
         $list
-            ->add('text')
+            ->addIdentifier('text')
             ->add('abilityLabel',null, array('label' => 'Ability'))
             ->add('group');
     }

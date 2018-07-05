@@ -1,0 +1,23 @@
+{% if activeSessions|length %}
+  <div class="active-sessions">
+      <h5>Give feedback</h5>
+      <table style="width: 100%; text-align: center" class="table">
+          <thead class="blue-grey lighten-4">
+              <th>Recipient</th>
+              <th>Providers</th>
+              <th>Actions</th>
+          </thead>
+          {% for activeSession in activeSessions %}
+          <tbody>
+                <th>{{ activeSession.to }}</th>
+                <th>{{ activeSession.from }}</th>
+                <th><i class="fa fa-share-square" aria-hidden="true"></i>Provide feedback</th>
+          </tbody>
+          {% endfor %}
+      </table>
+  </div>
+{% else %}
+  <div class="alert alert-danger" role="alert">
+    There are no active feedback session!
+  </div>
+{% endif %}

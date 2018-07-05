@@ -45,3 +45,7 @@ show_my_recognition_action:
 show_company_recognition_action:
     path:  /recognition/company-recognitions/{page}
     defaults: { _controller: FeedbackBundle:Recognition:companyRecognitions, page: 1}
+
+show_my_feedback_session_action:
+    path:  /session/show_my_session_section
+    defaults: { _controller: FeedbackBundle:Feedback:getActiveFeedbackSection }
