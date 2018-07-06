@@ -11,7 +11,9 @@
           <tbody>
                 <th>{{ activeSession.to }}</th>
                 <th>{{ activeSession.from }}</th>
-                <th><i class="fa fa-share-square" aria-hidden="true"></i>Provide feedback</th>
+                <th><i class="fa fa-share-square" aria-hidden="true"></i>
+                  <a href="{{ url('feedback_session_handler_action', {id: activeSession.id}) }}">Provide feedback</a>
+                </th>
           </tbody>
           {% endfor %}
       </table>

@@ -49,3 +49,7 @@ show_company_recognition_action:
 show_my_feedback_session_action:
     path:  /session/show_my_session_section
     defaults: { _controller: FeedbackBundle:Feedback:getActiveFeedbackSection }
+
+feedback_session_handler_action:
+    path:   /session/feedback/{id}
+    defaults: { _controller: FeedbackBundle:Feedback:sessionHandler }

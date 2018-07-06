@@ -68,6 +68,16 @@ class Session
     private $openMindednessAbilityAverage;
 
     /**
+     * @var string
+     */
+    private $goodPoints;
+
+    /**
+     * @var string
+     */
+    private $improvePoints;
+
+    /**
      * @return int
      */
     public function getId()
@@ -252,6 +262,42 @@ class Session
     public function setOpenMindednessAbilityAverage($openMindednessAbilityAverage)
     {
         $this->openMindednessAbilityAverage = $openMindednessAbilityAverage;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGoodPoints()
+    {
+        return $this->goodPoints;
+    }
+
+    /**
+     * @param string $goodPoints
+     * @return Session
+     */
+    public function setGoodPoints($goodPoints)
+    {
+        $this->goodPoints = $goodPoints;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImprovePoints()
+    {
+        return $this->improvePoints;
+    }
+
+    /**
+     * @param string $improvePoints
+     * @return Session
+     */
+    public function setImprovePoints($improvePoints)
+    {
+        $this->improvePoints = $improvePoints;
         return $this;
     }
 

@@ -32,6 +32,12 @@ FeedbackBundle\Entity\Session:
         openMindednessAbilityAverage:
             type: float
             nullable: true
+        goodPoints:
+           type: string
+           nullable: true
+        improvePoints:
+           type: string
+           nullable: true
     manyToOne:
         to:
           targetEntity: UserBundle\Entity\User
