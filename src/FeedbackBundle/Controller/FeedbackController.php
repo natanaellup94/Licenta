@@ -65,6 +65,11 @@ class FeedbackController extends Controller
         ));
     }
 
+    public function showSessionsAction(Request $request)
+    {
+        
+    }
+
     /**
      * Get questions for current group.
      *
