@@ -87,7 +87,9 @@ assetic:
             inputs:
                 - libs/js/select2/select2.full.min.js
                 - libs/js/select2/translation-ro.js
-
+        emoji_css:
+            inputs:
+                - libs/css/emoji.css
 # Doctrine Configuration
 doctrine:
     dbal:
