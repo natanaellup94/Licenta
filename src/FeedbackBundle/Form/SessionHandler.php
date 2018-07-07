@@ -2,6 +2,7 @@
 
 namespace FeedbackBundle\Form;
 
+use FeedbackBundle\Entity\BaseQuestion;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,12 +19,36 @@ class SessionHandler extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('communicationAbilityAverage', 'hidden')
-            ->add('knowledgeShareAbilityAverage', 'hidden')
-            ->add('executionAbilityAverage', 'hidden')
-            ->add('takingOverResponsabilityAbilityAverage', 'hidden')
-            ->add('teamSpiritAbilityAverage', 'hidden')
-            ->add('openMindednessAbilityAverage', 'hidden')
+            ->add('communicationAbilityAverage', 'hidden', array(
+                'attr' => array(
+                    'data-ability-field' => BaseQuestion::COMMUNICATION_ABILITY
+                )
+            ))
+            ->add('knowledgeShareAbilityAverage', 'hidden', array(
+                'attr' => array(
+                    'data-ability-field' => BaseQuestion::KNOWLEDGE_SHARING_ABILITY
+                )
+            ))
+            ->add('executionAbilityAverage', 'hidden', array(
+                'attr' => array(
+                    'data-ability-field' => BaseQuestion::EXECUTION_ABILITY
+                )
+            ))
+            ->add('takingOverResponsabilityAbilityAverage', 'hidden', array(
+                'attr' => array(
+                    'data-ability-field' => BaseQuestion::TAKING_OVER_RESPONSABILITY_ABILITY
+                )
+            ))
+            ->add('teamSpiritAbilityAverage', 'hidden', array(
+                'attr' => array(
+                    'data-ability-field' => BaseQuestion::TEAM_SPIRIT_ABILITY
+                )
+            ))
+            ->add('openMindednessAbilityAverage', 'hidden', array(
+                'attr' => array(
+                    'data-ability-field' => BaseQuestion::OPEN_MINDEDNESS_ABILITY
+                )
+            ))
             ->add('goodPoints', 'textarea')
             ->add('improvePoints', 'textarea');
     }

@@ -12,13 +12,35 @@
     };
 
     SessionHandlerController.prototype.init = function(){
-        $(this.form).on('submit', function(e) {
+
+        $('.em').on('click', function(){
+            var questionId = $(this).data('question-id');
+
+            $("[data-question-id="+questionId+"]").each(function(){
+                $(this).removeClass('selected');
+            });
+
+            $(this).addClass('selected');
+        });
+
+        $('.btn-danger').on('click', function(e) {
             e.preventDefault();
 
+            var results = new Array();
             $('.selected').each(function(){
-                console.log($(this).data('value'));
-                console.log($(this).data('ability'));
+                if(isNaN(results[$(this).data('ability')])){
+                    results[$(this).data('ability')] = 0;
+                }
+                results[$(this).data('ability')] += $(this).data('value');
             });
+
+            for(var i = 1; i <=6; i++){
+                var noQuestions = $("[data-ability-question = "+i+"]").length;
+                var abilityMean = !isNaN(results[i] / noQuestions) ? results[i] / noQuestions : 0;
+                $("[data-ability-field ="+i+"]").val(abilityMean);
+            }
+
+            $('form').submit();
         });
     };
 

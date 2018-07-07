@@ -43,7 +43,8 @@ class FeedbackController extends Controller
      */
     public function sessionHandlerAction(Request $request, $id)
     {
-        $sessionRepo = $this->getDoctrine()->getManager()->getRepository('FeedbackBundle:Session');
+        $em = $this->getDoctrine()->getManager();
+        $sessionRepo = $em->getRepository('FeedbackBundle:Session');
         $currentUser = $this->get('security.token_storage')->getToken()->getUser();
         $currentSession = $sessionRepo->find($id);
 
@@ -55,6 +56,12 @@ class FeedbackController extends Controller
         $form->handleRequest($request);
 
         if($form->isValid()){
+            $session = $form->getData();
+            $session->setStatus(Session::FINALIZED_STATUS);
+
+            $em->persist($session);
+            $em->flush();
+
             return $this->redirectToRoute('homepage');
         }
         
@@ -67,7 +74,7 @@ class FeedbackController extends Controller
 
     public function showSessionsAction(Request $request)
     {
-        
+
     }
 
     /**

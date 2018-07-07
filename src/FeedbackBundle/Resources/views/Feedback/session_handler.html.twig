@@ -14,22 +14,22 @@
           <ol class = "feedbackQuestions">
             {% for rawQuestion in question %}
               <li class = "feedbackQ">
-                <p class = "text-dark" style = "font-size: 20px; margin: 10px; margin-left: 20px;" >{{ rawQuestion.text }}</p>
+                <p class = "text-dark" style = "font-size: 20px; margin: 10px; margin-left: 20px;" data-ability-question="{{ rawQuestion.abilityType }}">{{ rawQuestion.text }}</p>
                 <ul id = "Rating">
                   <li class = "RatingItem">
-                    <div class="em em-worried smiley-element question-{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}" data-value="1"></div>
+                    <div class="em em-worried smiley-element question-{{ rawQuestion.id }}" data-question-id="{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}" data-value="1"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-slightly_frowning_face smiley-element question-{{ rawQuestion.id }}" data-value="2" data-ability="{{ rawQuestion.abilityType }}"></div>
+                    <div class="em em-slightly_frowning_face smiley-element question-{{ rawQuestion.id }}" data-question-id="{{ rawQuestion.id }}" data-value="2" data-ability="{{ rawQuestion.abilityType }}"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-neutral_face smiley-element question-{{ rawQuestion.id }} selected" data-value="3" data-ability="{{ rawQuestion.abilityType }}"></div>
+                    <div class="em em-neutral_face smiley-element question-{{ rawQuestion.id }} selected" data-question-id="{{ rawQuestion.id }}" data-value="3" data-ability="{{ rawQuestion.abilityType }}"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-grinning smiley-element question-{{ rawQuestion.id }}" data-value="4" data-ability="{{ rawQuestion.abilityType }}"></div>
+                    <div class="em em-grinning smiley-element question-{{ rawQuestion.id }}" data-value="4" data-question-id="{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-grin smiley-element question-{{ rawQuestion.id }}" data-value="5" data-ability="{{ rawQuestion.abilityType }}"></div>
+                    <div class="em em-grin smiley-element question-{{ rawQuestion.id }}" data-value="5" data-question-id="{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}"></div>
                   </li>
                 </ul>
               </li>
