@@ -4,7 +4,7 @@
   <div class = "container">
     <div id = "feedackform">
       <div id = "feedbackformTitle" >
-        <p class = "text-primary" style = "font-size: 50px">Feedback form</p>
+        <p class = "text-primary" style = "font-size: 50px">Feedback form ({{ session.to.username }})</p>
       </div>
       <ul>
   {% for question in questions %}
@@ -17,19 +17,19 @@
                 <p class = "text-dark" style = "font-size: 20px; margin: 10px; margin-left: 20px;" >{{ rawQuestion.text }}</p>
                 <ul id = "Rating">
                   <li class = "RatingItem">
-                    <div class="em em-worried"></div>
+                    <div class="em em-worried smiley-element question-{{ rawQuestion.id }}" data-value="1"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-slightly_frowning_face"></div>
+                    <div class="em em-slightly_frowning_face smiley-element question-{{ rawQuestion.id }}" data-value="2"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-neutral_face"></div>
+                    <div class="em em-neutral_face smiley-element question-{{ rawQuestion.id }} selected" data-value="3"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-grinning"></div>
+                    <div class="em em-grinning smiley-element question-{{ rawQuestion.id }}" data-value="4"></div>
                   </li>
                   <li class = "RatingItem">
-                    <div class="em em-grin"></div>
+                    <div class="em em-grin smiley-element question-{{ rawQuestion.id }}" data-value="5"></div>
                   </li>
                 </ul>
               </li>
@@ -40,5 +40,27 @@
   {% endfor %}
       </ul>
     </div>
+  </div>
+
+  <div style="margin-left: 150px; margin-top: 20px; ">
+    {{ form_start(form, {'methos': 'post', 'attr':{'class':'handler-session-form form-horizontal'} }) }}
+
+    <div class="control-group col-md-6">
+      {{ form_label(form.goodPoints, 'What are some things he does well?', {'label_attr': {'class': 'control-label'}}) }}
+      <div class="controls">
+        {{ form_widget (form.goodPoints, { attr : { class :"form-control" } }) }}
+      </div>
+    </div>
+
+    <div class="control-group col-md-6">
+      {{ form_label(form.improvePoints, 'What are some things he could do better?', {'label_attr': {'class': 'control-label'}}) }}
+      <div class="controls">
+        {{ form_widget (form.improvePoints, { attr : { class :"form-control" } }) }}
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-danger" style="margin-left: 500px; margin-top: 30px;">Submit</button>
+
+    {{ form_end(form) }}
   </div>
 {% endblock %}

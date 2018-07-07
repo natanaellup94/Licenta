@@ -60,6 +60,7 @@ class FeedbackController extends Controller
         
         return $this->render('@Feedback/Feedback/session_handler.html.twig', array(
             'form' => $form->createView(),
+            'session' => $currentSession,
             'questions' => $this->getQuestions($currentSession->getTo()->getGroups()[0])
         ));
     }

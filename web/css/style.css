@@ -82,3 +82,26 @@ Goal sections.
     text-align: center;
     padding-bottom: 20px;
 }
+
+ul li{
+    display: inline
+}
+.RatingItem{
+    margin: 80px;
+}
+.feedbackformTitle{
+    font-size: 100px;
+
+}
+#feedbackQuestions{
+    font-size: 210px;
+
+}
+.feedbackQ{
+    margin-bottom: 60px;
+}
+
+.RatingItem .em.selected {
+    border: 2px solid #17a2b8;
+    border-radius: 37px;
+}
