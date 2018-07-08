@@ -1,0 +1,27 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+  {% if finalizedSessions|length == 0 %}
+    <div class="alert alert-danger" role="alert">
+      There are no finalized feedback session!
+    </div>
+  {% else %}
+      <div class="col-md-6">
+        <h5>What are some things he does well ?</h5>
+        <ul>
+          {% for session in finalizedSessions %}
+            <li style="display:list-item;"><strong>{{ session.from.username }}: </strong>{{ session.goodPoints }}</li>
+          {% endfor %}
+        </ul>
+
+        <hr>
+
+        <h5>What are some things he could do better?</h5>
+        <ul>
+          {% for session in finalizedSessions %}
+            <li style="display:list-item;"><strong>{{ session.from.username }}</strong>{{ session.improvePoints }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+  {% endif %}
+{% endblock content %}

@@ -74,7 +74,15 @@ class FeedbackController extends Controller
 
     public function showSessionsAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        $sessionRepo = $em->getRepository('FeedbackBundle:Session');
+        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
 
+        $finalizedSessions = $sessionRepo->findBy(array('to' => $currentUser, 'status' => Session::FINALIZED_STATUS));
+
+        return $this->render('@Feedback/Feedback/show_my_feedback_page.html.twig', array(
+            'finalizedSessions' => $finalizedSessions
+        ));
     }
 
     /**

@@ -53,3 +53,7 @@ show_my_feedback_session_action:
 feedback_session_handler_action:
     path:   /session/feedback/{id}
     defaults: { _controller: FeedbackBundle:Feedback:sessionHandler }
+
+show_my_feedback:
+    path:   /session/my-feedback
+    defaults: { _controller: FeedbackBundle:Feedback:showSessions }
