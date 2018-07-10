@@ -57,3 +57,6 @@ feedback_session_handler_action:
 show_my_feedback:
     path:   /session/my-feedback
     defaults: { _controller: FeedbackBundle:Feedback:showSessions }
+show_my_score:
+    path:  /session/current-user-score
+    defaults: { _controller: FeedbackBundle:Feedback:currentUserScore }

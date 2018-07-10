@@ -85,6 +85,76 @@ class FeedbackController extends Controller
         ));
     }
 
+    public function currentUserScoreAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $sessionRepo = $em->getRepository('FeedbackBundle:Session');
+        $currentUser = $this->get('security.token_storage')->getToken()->getUser();
+
+        $finalizedSessions = $sessionRepo->findBy(array('to' => $currentUser, 'status' => Session::FINALIZED_STATUS));
+
+        $sumOfPoints = array(
+            BaseQuestion::COMMUNICATION_ABILITY_LABEL => 0,
+            BaseQuestion::OPEN_MINDEDNESS_ABILITY_LABEL => 0,
+            BaseQuestion::TEAM_SPIRIT_ABILITY_LABEL => 0,
+            BaseQuestion::TAKING_OVER_RESPONSABILITY_ABILITY_LABEL => 0,
+            BaseQuestion::EXECUTION_ABILITY_LABEL => 0,
+            BaseQuestion::KNOWLEDGE_SHARING_ABILITY_LABEL => 0,
+        );
+
+        $noOfSession = array(
+            BaseQuestion::COMMUNICATION_ABILITY_LABEL => 0,
+            BaseQuestion::OPEN_MINDEDNESS_ABILITY_LABEL => 0,
+            BaseQuestion::TEAM_SPIRIT_ABILITY_LABEL => 0,
+            BaseQuestion::TAKING_OVER_RESPONSABILITY_ABILITY_LABEL => 0,
+            BaseQuestion::EXECUTION_ABILITY_LABEL => 0,
+            BaseQuestion::KNOWLEDGE_SHARING_ABILITY_LABEL => 0,
+        );
+
+        /** @var Session $finalizedSession */
+        foreach ($finalizedSessions as $finalizedSession){
+            if(!empty($finalizedSession->getCommunicationAbilityAverage())){
+                $sumOfPoints[BaseQuestion::COMMUNICATION_ABILITY_LABEL] += $finalizedSession->getCommunicationAbilityAverage();
+                $noOfSession[BaseQuestion::COMMUNICATION_ABILITY_LABEL]++;
+            }
+
+            if(!empty($finalizedSession->getOpenMindednessAbilityAverage())){
+                $sumOfPoints[BaseQuestion::OPEN_MINDEDNESS_ABILITY_LABEL] += $finalizedSession->getOpenMindednessAbilityAverage();
+                $noOfSession[BaseQuestion::OPEN_MINDEDNESS_ABILITY_LABEL]++;
+            }
+
+            if(!empty($finalizedSession->getTeamSpiritAbilityAverage())){
+                $sumOfPoints[BaseQuestion::TEAM_SPIRIT_ABILITY_LABEL] += $finalizedSession->getTeamSpiritAbilityAverage();
+                $noOfSession[BaseQuestion::TEAM_SPIRIT_ABILITY_LABEL]++;
+            }
+
+            if(!empty($finalizedSession->getTakingOverResponsabilityAbilityAverage())){
+                $sumOfPoints[BaseQuestion::TAKING_OVER_RESPONSABILITY_ABILITY_LABEL] += $finalizedSession->getTakingOverResponsabilityAbilityAverage();
+                $noOfSession[BaseQuestion::TAKING_OVER_RESPONSABILITY_ABILITY_LABEL]++;
+            }
+
+            if(!empty($finalizedSession->getExecutionAbilityAverage())){
+                $sumOfPoints[BaseQuestion::EXECUTION_ABILITY_LABEL] += $finalizedSession->getExecutionAbilityAverage();
+                $noOfSession[BaseQuestion::EXECUTION_ABILITY_LABEL]++;
+            }
+
+            if(!empty($finalizedSession->getKnowledgeShareAbilityAverage())){
+                $sumOfPoints[BaseQuestion::KNOWLEDGE_SHARING_ABILITY_LABEL] += $finalizedSession->getKnowledgeShareAbilityAverage();
+                $noOfSession[BaseQuestion::KNOWLEDGE_SHARING_ABILITY_LABEL]++;
+            }
+        }
+
+        foreach ($sumOfPoints as $key => $sumOfPoint){
+            if($noOfSession && $sumOfPoint){
+                $results[$key] = $sumOfPoint / $noOfSession[$key];
+            }else{
+                $results[$key] = 0;
+            }
+        }
+
+        return new JsonResponse($results);
+    }
+
     /**
      * Get questions for current group.
      *
