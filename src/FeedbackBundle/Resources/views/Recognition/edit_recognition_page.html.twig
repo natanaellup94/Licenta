@@ -1,10 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-  <h2>Edit recognition</h2>
-  <div class="col-md-6">
-    {{ include('@Feedback/Form/add_edit_recognition.html.twig', { form: form}) }}
+  <div class="card col-md-6 offset-3">
+      <div class="card-body">
+          <h2>Edit recognition</h2>
+            {{ include('@Feedback/Form/add_edit_recognition.html.twig', { form: form}) }}
+      </div>
   </div>
+
 {% endblock %}
 
 {% block javascripts %}

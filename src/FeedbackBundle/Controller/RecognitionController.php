@@ -86,7 +86,7 @@ class RecognitionController extends Controller
             $em->persist($recognition);
             $em->flush();
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('show_my_recognition_action');
         }
 
         return $this->render('@Feedback/Recognition/add_recognition_page.html.twig', array('form' => $form->createView()));
@@ -118,7 +118,7 @@ class RecognitionController extends Controller
             $em->persist($recognition);
             $em->flush();
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('show_my_recognition_action');
         }
 
         return $this->render('@Feedback/Recognition/edit_recognition_page.html.twig', array('form' => $form->createView()));
