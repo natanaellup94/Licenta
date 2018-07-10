@@ -1,9 +1,11 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-  <h2>Add a new goal</h2>
-  <div class="col-md-6">
-    {{ include('@Feedback/Form/add_edit_goal.html.twig', { form: form}) }}
+  <div class="card col-md-6 offset-3">
+    <div class="card-body">
+      <h2>Add a new goal</h2>
+      {{ include('@Feedback/Form/add_edit_goal.html.twig', { form: form}) }}
+    </div>
   </div>
 {% endblock %}
 

@@ -105,3 +105,17 @@ ul li{
     border: 2px solid #17a2b8;
     border-radius: 37px;
 }
+
+.card-link{
+    padding-top: 100px;
+}
+.card-text{
+    font-size: 25px;
+}
+.card-subtitle{
+    padding-top: 30px;
+    font-size: 25px;
+}
+.card-title{
+    font-size: 40px;
+}
