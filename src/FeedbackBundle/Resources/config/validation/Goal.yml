@@ -1,0 +1,10 @@
+FeedbackBundle\Entity\Goal:
+  properties:
+    title:
+       NotBlank: ~
+    description:
+       NotBlank: ~
+    startDate:
+        NotBlank: ~
+    endDate:
+        NotBlank: ~
