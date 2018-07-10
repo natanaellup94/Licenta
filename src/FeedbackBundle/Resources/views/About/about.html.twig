@@ -1,0 +1,133 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Insider Tutorial</h4>
+      <div id="appOverview">
+        <h6 class="card-subtitle text-primary mb-2" id="Application_Overview">Application Overview</h6>
+        <p class="card-text">Insider application is an application that is trying to help you better understand how your colleagues appreciate your work efforts and monitories how your goals are achieved.</p>
+        <p class="card-text">Insider application can be divided into four parts, each of them with their specific role in the overall improvement of your skills. </p>
+        <ol>
+          <li class="card-text"><p class="card-text">First part is the <a href="#Feedback_Form" class="card-link">Feedback Form</a>. In this part you are able to give feedback for your colleagues. This is the main part of the application as it contains the main action of the application.</p></li>
+          <li class="card-text"><p class="card-text">The second part are the <a href="#Feedback_Results" class="card-link">Feedback Results</a>, extracted from the feedback forms signed in by you colleagues. In this section you can see the current status of your ratings. </p></li>
+          <li class="card-text"><p class="card-text">The third section is represented by another type of feedback you can receive: the <a href="#Company_Recognition" class="card-link">Company Recognition</a>. These recognitions are some small awards you can get for outstanding work, abilities, collegiality etc.</p></li>
+          <li class="card-text"><p class="card-text">The forth section are the <a href="#My_Goals" class="card-link">Goals</a> you set for your work. This tool helps you be aware of your plans and make sure you are making improvements.</p></li>
+        </ol>
+        <p class="card-text" style="font-size: 15px;">Find out more tips and tricks for each part of the application using the below sections.</p>
+      </div>
+      <div id="feedbackForm">
+        <h6 class="card-subtitle text-primary mb-2" id="Feedback_Form">Feedback Form</h6>
+        <p class="card-text">The feedback forms are special forms in which your team colleages evaluates your skills based on the questions provided. But you also have to give feedback in order for the feedback circle to work.</p>
+        <p class="card-text">It is important to notice that the feedback form questions are not always the same. What is the factor that changes the questions? Your position. </p>
+        <p class="card-text">When we designed the application we took special time to think about the relevance of the feedback process if all the employees were evaluated with the same set of characteristics. After some research we descovered that the best way to be sure the employees are correctly evaluated was to take into consideration their position. So if you are a front end developer you need to have a distinct set of characteristics in opposion to a designer or a tester.</p>
+        <p class="card-text">Do not worry that the evaluation will not be done. The core characteristics are still kept for all employees, regardless of their posion but the matter were the certain ability can be observed it is changed.</p>
+        <p class="card-text">At the end of the form there are special places where you can leave your further comments on the skills of your colleage, as things that he heas done well and as things he has to change in the future. Fell free here to leave all the comments, as they will be very usefull for the overall improvement of your team performance.</p>
+
+        <p class = "card-text">Related links:</p>
+        <a href="#Feedback_Results" class="card-link">Feedback Results</a>
+        <a href="#FeedbackAnswers" class="card-link">Feedback Answers</a>
+        <a href="#feedbackCategories" class="card-link">Question cathegories</a>
+        <a href="#Company_Recognition" class="card-link">Company Recognition</a>
+
+      </div>
+      <div id="feedbackAnswers">
+        <h6 class="card-subtitle text-primary mb-2" id="FeedbackAnswers">Feedback Answers</h6>
+        <p class="card-text">The answers of the feedback form questions are displayed in the form of 5 emoji faces: </p>
+        <ul id = "Rating">
+          <li class = "RatingItem">
+            <div class="em em-worried"></div>
+          </li>
+          <li class = "RatingItem">
+            <div class="em em-slightly_frowning_face"></div>
+          </li>
+          <li class = "RatingItem">
+            <div class="em em-neutral_face"></div>
+          </li>
+          <li class = "RatingItem">
+            <div class="em em-grinning"></div>
+          </li>
+          <li class = "RatingItem">
+            <div class="em em-grin"></div>
+          </li>
+        </ul>
+        <ol>
+          <li class = "card-text">
+            <p class="card-text">The worried face represents that your colleague has unsatisfactory done a certain task or reacted to a certain event(depending on the question subject).</p>
+          </li>
+          <li class = "card-text">
+            <p class="card-text">The slightly frowning face represents that your colleague has slightly done a specific task, and still has a lot to improve regarding the matter.</p>
+          </li>
+          <li class = "card-text">
+            <p class="card-text">The neutral face describes eighter that you can not form an opinion or that the colleague is nighter doining the certain task right, nor wrong, he is completing the tasks but he lacks enthuziasm.</p>
+          </li>
+          <li class = "card-text">
+            <p class="card-text">The smiley face indicates that the person you are evaluating is showing prograss and that he is doing the tasks correctly and with enthusiasm.</p>
+          </li>
+          <li class = "card-text">
+            <p class="card-text">The happy face represents a colleage that is absolutely excel at the task, he is very involved, he does it with passion and tends to do take initiative on the subject.</p>
+          </li>
+        </ol>
+        <p class="card-text">The 5 level ratings proved that it is the best way to evaluate a person's behaviour, improvement and performance, being recomanded by many human resources managers, amoung which <a href="https://en.wikipedia.org/wiki/Laszlo_Bock" class="card-link">Laszlo Bock</a>, the Senior Vice President of People Operations at Google, stating that this rating sistem showed best results.</p>
+
+        <p class = "card-text">Related links:</p>
+        <a href="#FeedbackForms" class="card-link">Feedback Forms</a>
+        <a href="#Feedback_Results" class="card-link">Feedback Results</a>
+      </div>
+      <div id="feedbackCategories">
+        <h6 class="card-subtitle text-primary mb-2" id="Feedback_Form_Categories">Feedback Form Categories</h6>
+        <p class="card-text">The questions from the feedback form are divided into 6 categories as it follows: </p>
+        <ol>
+          <li class = "card-text">
+            <p class = "card-text">Execution: the questions belonging to this category are analysing your professional skills because, of course, it is very important to have tasks that all well done. </p>
+          </li>
+          <li class = "card-text">
+            <p class = "card-text">Taking over responsabilities: in a team there are quite a few moments that require you to have the nerve to take initiative and with it the responsability of completing the tasks. This category is evaluating your willingness to do so.</p>
+          </li>
+          <li class = "card-text">
+            <p class = "card-text">Communication: it is very important to have a good Communication within the team, so in order to have a high point for this category you must invest some time in your ability to communicate with your colleages.</p>
+          </li>
+          <li class = "card-text">
+            <p class = "card-text">Knowledge sharing: there is a saying that stands behind the principle that made us create this category: "Sharing is caring". It is highly important to share what you have learned during a period of time and invest in the development of the whole team and not of the individuals. So this category will evaluate your willingness to do so.</p>
+          </li>
+          <li class = "card-text">
+            <p class = "card-text">Team spirit: a good team spirit will boost the overall performance of the team. Be a team member and not only an individual person and will sure get a high score.</p>
+          </li>
+          <li class = "card-text">
+            <p class = "card-text">Open Mindedness: the always changing world is the perfect reason to encourage you to be open to new ideas, new working methods, new tools and through this, the rating will be improved.</p>
+          </li>
+        </ol>
+
+        <p class = "card-text">Related links:</p>
+        <a href="#FeedbackForms" class="card-link">Feedback Forms</a>
+        <a href="#Feedback_Results" class="card-link">Feedback Results</a>
+      </div>
+      <div id="feedbackResults">
+        <h6 class="card-subtitle text-primary mb-2" id="Feedback_Results">Feedback Results</h6>
+        <p class="card-text">The feedback results will be displayed as a graphical representation of the results you have received for each cathegory. In this way you can evaluate yourself and see how close you are for a 'Superb' result of above 4.5. Feel free to set your goals acordinglly.</p>
+        <img src="{{ asset('image/chart.PNG') }}" style="margin-left: 20%;">
+        <p class = "card-text">Related links:</p>
+        <a href="#FeedbackForms" class="card-link">Feedback Forms</a>
+        <a href="#Feedback_Results" class="card-link">Feedback Forms Categories</a>
+        <a href="#My_Goals" class="card-link">Goals</a>
+      </div>
+
+      <h6 class="card-subtitle text-primary mb-2" id="My_Goals">My Goals</h6>
+      <p class="card-text">This section is a section that provides you the tool to set personal goals in order to achive your desired proffesion. Feel free to set goals that you track and register the progress by simply editing the goal.</p>
+      <p class="card-text">Don't be afraid to set your goals high, as high as you can see.</p>
+      <p class = "card-text">Related links:</p>
+      <a href="#Feedback_Results" class="card-link">Feedback Results</a>
+      <a href="#Company_Recognition" class="card-link">Company Recognition</a>
+
+      <h6 class="card-subtitle text-primary mb-2" id="Company_Recognition">Company Recognition</h6>
+      <p class="card-text">This section is meant to give you that extra boost of motivation that you need. It is not always a matter of personal success but also of the other's recognition of those successes. The recognitions are exactly that aproval that your bahaviour is an aproved behaviour.</p>
+      <p class="card-text">The recognitions are also trying to support your effort of not only giving you best proffesionally but also personally.</p>
+      <p class="card-text">Do not forget that giving always brings more joy than receiving, so be the first who takes the lead and recognise your colleagues strong points, acts of kindness and their way of work.</p>
+      <p class = "card-text">Related links:</p>
+      <a href="#appOverview" class="card-link">Application Overview</a>
+      <a href="#feedbackResults" class="card-link">Feedback Results</a>
+    </div>
+  </div>
+
+{% endblock %}

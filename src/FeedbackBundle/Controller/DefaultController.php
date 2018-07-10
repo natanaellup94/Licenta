@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
         return $this->render('FeedbackBundle:Homepage:index.html.twig');
     }
+
+    public function aboutPageAction()
+    {
+        return $this->render('FeedbackBundle:About:about.html.twig');
+    }
 }

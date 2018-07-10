@@ -44,6 +44,7 @@
                     labels.push(key);
                     data.push(value);
                 });
+
                 var ctx = document.getElementById('base-chart-canvas').getContext('2d');
                 var myChart = new Chart(ctx, {
                     type: 'bar',
@@ -75,7 +76,8 @@
                         scales: {
                             yAxes: [{
                                 ticks: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    max: 5.0
                                 }
                             }]
                         }

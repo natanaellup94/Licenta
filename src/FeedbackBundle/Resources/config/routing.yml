@@ -2,6 +2,10 @@ homepage:
     path:     /
     defaults: { _controller: FeedbackBundle:Default:index }
 
+about_page:
+    path:   /about
+    defaults: { _controller: FeedbackBundle:Default:aboutPage }
+
 show_my_goals_section:
     path:     /goals/show_my_goals
     defaults: { _controller: FeedbackBundle:Goal:showMyGoals }
