@@ -2,74 +2,85 @@
 
 {% block content %}
   <div class="offset-1 col-md-10">
-  <div class="card">
-    <div class="card-body">
-  <div class = "container">
-    <div id = "feedackform">
-      <div id = "feedbackformTitle" >
-        <p class = "text-primary" style = "font-size: 50px">Feedback form ({{ session.to.username }})</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="container">
+          <div id="feedackform">
+            <div id="feedbackformTitle">
+              <p class="text-primary" style="font-size: 50px">Feedback form ({{ session.to.username }})</p>
+            </div>
+            <ul>
+              {% for question in questions %}
+                {% if question|length %}
+                  <li class="Category" id="Category1">
+                    <p class="text-primary" style="font-size: 25px;">{{ question[0].abilityLabel }}</p>
+                    <ol class="feedbackQuestions">
+                      {% for rawQuestion in question %}
+                        <li class="feedbackQ">
+                          <p class="text-dark" style="font-size: 20px; margin: 10px; margin-left: 20px;"
+                             data-ability-question="{{ rawQuestion.abilityType }}">{{ rawQuestion.text }}</p>
+                          <ul id="Rating">
+                            <li class="RatingItem">
+                              <div class="em em-worried smiley-element question-{{ rawQuestion.id }}"
+                                   data-question-id="{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}"
+                                   data-value="1"></div>
+                            </li>
+                            <li class="RatingItem">
+                              <div class="em em-slightly_frowning_face smiley-element question-{{ rawQuestion.id }}"
+                                   data-question-id="{{ rawQuestion.id }}" data-value="2"
+                                   data-ability="{{ rawQuestion.abilityType }}"></div>
+                            </li>
+                            <li class="RatingItem">
+                              <div class="em em-neutral_face smiley-element question-{{ rawQuestion.id }} selected"
+                                   data-question-id="{{ rawQuestion.id }}" data-value="3"
+                                   data-ability="{{ rawQuestion.abilityType }}"></div>
+                            </li>
+                            <li class="RatingItem">
+                              <div class="em em-grinning smiley-element question-{{ rawQuestion.id }}" data-value="4"
+                                   data-question-id="{{ rawQuestion.id }}"
+                                   data-ability="{{ rawQuestion.abilityType }}"></div>
+                            </li>
+                            <li class="RatingItem">
+                              <div class="em em-grin smiley-element question-{{ rawQuestion.id }}" data-value="5"
+                                   data-question-id="{{ rawQuestion.id }}"
+                                   data-ability="{{ rawQuestion.abilityType }}"></div>
+                            </li>
+                          </ul>
+                        </li>
+                      {% endfor %}
+                    </ol>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; margin-left: 4%;">
+          {{ form_start(form, {'methos': 'post', 'attr':{'class':'handler-session-form form-horizontal'} }) }}
+
+          <div class="control-group col-md-6">
+            {{ form_label(form.goodPoints, 'What are some things he does well?', {'label_attr': {'class': 'control-label'}}) }}
+            <div class="controls">
+              {{ form_widget (form.goodPoints, { attr : { class :"form-control" } }) }}
+            </div>
+          </div>
+
+          <div class="control-group col-md-6">
+            {{ form_label(form.improvePoints, 'What are some things he could do better?', {'label_attr': {'class': 'control-label'}}) }}
+            <div class="controls">
+              {{ form_widget (form.improvePoints, { attr : { class :"form-control" } }) }}
+            </div>
+          </div>
+
+          <div style="margin-top: 30px; margin-left: 40%;">
+            <input class="form-control btn btn btn-danger" type="submit" id="_submit" name="_submit" value="Submit"/>
+          </div>
+
+          {{ form_end(form) }}
+        </div>
       </div>
-      <ul>
-  {% for question in questions %}
-    {% if question|length %}
-        <li class = "Category" id = "Category1">
-          <p class = "text-primary" style = "font-size: 25px;">{{ question[0].abilityLabel }}</p>
-          <ol class = "feedbackQuestions">
-            {% for rawQuestion in question %}
-              <li class = "feedbackQ">
-                <p class = "text-dark" style = "font-size: 20px; margin: 10px; margin-left: 20px;" data-ability-question="{{ rawQuestion.abilityType }}">{{ rawQuestion.text }}</p>
-                <ul id = "Rating">
-                  <li class = "RatingItem">
-                    <div class="em em-worried smiley-element question-{{ rawQuestion.id }}" data-question-id="{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}" data-value="1"></div>
-                  </li>
-                  <li class = "RatingItem">
-                    <div class="em em-slightly_frowning_face smiley-element question-{{ rawQuestion.id }}" data-question-id="{{ rawQuestion.id }}" data-value="2" data-ability="{{ rawQuestion.abilityType }}"></div>
-                  </li>
-                  <li class = "RatingItem">
-                    <div class="em em-neutral_face smiley-element question-{{ rawQuestion.id }} selected" data-question-id="{{ rawQuestion.id }}" data-value="3" data-ability="{{ rawQuestion.abilityType }}"></div>
-                  </li>
-                  <li class = "RatingItem">
-                    <div class="em em-grinning smiley-element question-{{ rawQuestion.id }}" data-value="4" data-question-id="{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}"></div>
-                  </li>
-                  <li class = "RatingItem">
-                    <div class="em em-grin smiley-element question-{{ rawQuestion.id }}" data-value="5" data-question-id="{{ rawQuestion.id }}" data-ability="{{ rawQuestion.abilityType }}"></div>
-                  </li>
-                </ul>
-              </li>
-            {% endfor %}
-          </ol>
-        </li>
-      {% endif %}
-  {% endfor %}
-      </ul>
     </div>
-  </div>
-
-  <div style="margin-left: 150px; margin-top: 20px; ">
-    {{ form_start(form, {'methos': 'post', 'attr':{'class':'handler-session-form form-horizontal'} }) }}
-
-    <div class="control-group col-md-6">
-      {{ form_label(form.goodPoints, 'What are some things he does well?', {'label_attr': {'class': 'control-label'}}) }}
-      <div class="controls">
-        {{ form_widget (form.goodPoints, { attr : { class :"form-control" } }) }}
-      </div>
-    </div>
-
-    <div class="control-group col-md-6">
-      {{ form_label(form.improvePoints, 'What are some things he could do better?', {'label_attr': {'class': 'control-label'}}) }}
-      <div class="controls">
-        {{ form_widget (form.improvePoints, { attr : { class :"form-control" } }) }}
-      </div>
-    </div>
-
-    <div style="margin-left: 500px; margin-top: 30px;">
-      <input class="form-control btn btn btn-danger" type="submit" id="_submit" name="_submit" value="Submit" />
-    </div>
-
-    {{ form_end(form) }}
-  </div>
-  </div>
-  </div>
   </div>
 {% endblock %}
 
@@ -77,8 +88,7 @@
   {{ parent() }}
 
   {% javascripts output='compiled/js/homepage_page.js' filter="?jsqueeze"
-  '@FeedbackBundle/Resources/public/js/SessionHandlerController.js'
-  %}
+  '@FeedbackBundle/Resources/public/js/SessionHandlerController.js' %}
   <script type="text/javascript" src="{{ asset_url }}"></script>
   {% endjavascripts %}
 {% endblock %}
