@@ -10,12 +10,19 @@
 {% endblock %}
 
 {% block javascripts %}
-  {#{{ parent() }}#}
+  {{ parent() }}
 
-  {#{% javascripts#}
-    {#'@FeedbackBundle/Resources/public/js/HandlerGoalForm.js'#}
-  {#%}#}
-    {#<script type="text/javascript" src="{{ asset_url }}"></script>#}
-  {#{% endjavascripts %}#}
+  <script>
+    {{ form_jquery_validation(form) }}
+  </script>
+{% endblock %}
 
+{% block javascript_libs %}
+  {{ parent() }}
+
+  {% javascripts output='compiled/js/admin.integration.form_validators.js' filter="?jsqueeze"
+  '@boekkooi_jquery_validation_bundle'
+  %}
+  <script type="text/javascript" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
 {% endblock %}

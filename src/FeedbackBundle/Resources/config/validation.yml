@@ -1,0 +1,26 @@
+FeedbackBundle\Entity\Goal:
+    properties:
+        title:
+            - NotBlank:
+                groups: [ Default ]
+        description:
+            - NotBlank:
+                groups: [ Default ]
+        startDate:
+            - NotBlank:
+                groups: [ Default ]
+        endDate:
+            - NotBlank:
+                groups: [ Default ]
+
+FeedbackBundle\Entity\Recognition:
+    properties:
+        to:
+            - NotBlank:
+                groups: [ Default ]
+        type:
+            - NotBlank:
+                groups: [ Default ]
+        description:
+            - NotBlank:
+                groups: [ Default ]

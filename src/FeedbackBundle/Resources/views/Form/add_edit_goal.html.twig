@@ -1,21 +1,14 @@
 {% set currentValue = form.vars.value %}
 
-{{ form_start(form, {'methos': 'post', 'attr':{'class':'handler-goal-form form-horizontal'} }) }}
-
-{% if not form.vars.valid %}
-    <div class="alert alert-block alert-error fade in">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      {{ form_errors(form.title) }}
-      {{ form_errors(form.description) }}
-      {{ form_errors(form.startDate) }}
-      {{ form_errors(form.endDate) }}
-    </div>
-{% endif %}
+{{ form_start(form, {'methos': 'post', 'attr':{'class':'handler-goal-form form-horizontal', 'novalidate': 'novalidate'} }) }}
 
 <div class="control-group">
   {{ form_label(form.title, null, {'label_attr': {'class': 'control-label'}}) }}
   <div class="controls">
     {{ form_widget (form.title, { attr : { class :"form-control" } }) }}
+  </div>
+  <div class="error">
+    {{ form_errors(form.title) }}
   </div>
 </div>
 
@@ -24,6 +17,9 @@
   <div class="controls">
     {{ form_widget (form.description, { attr : { class :"form-control" } }) }}
   </div>
+  <div class="error">
+    {{ form_errors(form.description) }}
+  </div>
 </div>
 
 <div class="control-group">
@@ -31,12 +27,18 @@
   <div class="controls">
     {{ form_widget (form.startDate, { attr : { class :"form-control js-datepicker" } }) }}
   </div>
+  <div class="error">
+    {{ form_errors(form.startDate) }}
+  </div>
 </div>
 
 <div class="control-group">
   {{ form_label(form.endDate, null, {'label_attr': {'class': 'control-label'}}) }}
   <div class="controls">
     {{ form_widget (form.endDate, { attr : { class :"form-control js-datepicker" } }) }}
+  </div>
+  <div class="error">
+    {{ form_errors(form.endDate) }}
   </div>
 </div>
 {% if currentValue.id is not null %}
