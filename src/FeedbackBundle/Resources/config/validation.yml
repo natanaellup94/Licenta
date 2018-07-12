@@ -24,3 +24,35 @@ FeedbackBundle\Entity\Recognition:
         description:
             - NotBlank:
                 groups: [ Default ]
+
+FeedbackBundle\Entity\RecognitionType:
+    properties:
+        type:
+            - NotBlank:
+                  groups: [ Default ]
+        icon:
+            - NotBlank:
+                  groups: [ Default ]
+
+FeedbackBundle\Entity\Session:
+    properties:
+        to:
+            - NotBlank:
+                groups: [ Default ]
+        from:
+            - NotBlank:
+                groups: [ Default ]
+    constraints:
+        - Callback: validate
+
+FeedbackBundle\Entity\BaseQuestion:
+     properties:
+        text:
+            - NotBlank:
+                groups: [ Default ]
+        group:
+             - NotBlank:
+                 groups: [ Default ]
+        abilityType:
+             - NotBlank:
+                  groups: [ Default ]

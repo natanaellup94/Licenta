@@ -31,6 +31,7 @@ class RecognitionTypeAdmin extends Admin
         $form
             ->with('Details', array('class' => 'col-md-6'))
             ->add('type')
+            ->add('icon', null, array('help' => 'Example: fa fa-code.'))
             ->end();
     }
 

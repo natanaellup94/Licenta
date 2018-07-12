@@ -3,6 +3,7 @@
 namespace FeedbackBundle\Entity;
 
 use UserBundle\Entity\User;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class Session
 {
@@ -324,6 +325,14 @@ class Session
             self::NEW_STATUS        => self::NEW_STATUS_LABEL,
             self::FINALIZED_STATUS  => self::FINALIZED_STATUS_LABEL
         ];
+    }
+
+    public function validate(ExecutionContextInterface $context){
+        if($this->getTo()->getId() === $this->getFrom()->getId()){
+            $context->buildViolation('This user was selected in to field.')
+                ->atPath('from')
+                ->addViolation();
+        }
     }
 
     /**

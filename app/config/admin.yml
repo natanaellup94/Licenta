@@ -25,8 +25,8 @@ sonata_block:
 
 # Sonata Admin Configuration
 sonata_admin:
-    title:      'Symfony 2.8 Demo'
-    title_logo: image/logo-small.png
+    title:      'Insider'
+    title_logo: image/letter-f-logo-template.jpg
     options:
         pager_links: 10
         html5_validate: false

@@ -9,6 +9,11 @@ use Sonata\AdminBundle\Route\RouteCollection;
 
 class RecognitionAdmin extends Admin
 {
+    protected $datagridValues = array(
+        '_sort_order' => 'DESC', // reverse order (default = 'ASC')
+        '_sort_by' => 'added'  // name of the ordered field
+    );
+
     /**
      * @param RouteCollection $collection
      */
