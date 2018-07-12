@@ -133,10 +133,11 @@ class UserAdmin extends BaseUserAdmin
             ->add('email')
             ->add(
                 'plainPassword',
-                'text',
+                'hidden',
                 array(
                     'required' => (!$this->getSubject() || is_null($this->getSubject()->getId())),
-                    'help'     => 'Password does not meet the requirements.'
+                    'help'     => 'Password does not meet the requirements.',
+                    'data'      => 'test'
                 )
             )
             ->end()
@@ -203,5 +204,40 @@ class UserAdmin extends BaseUserAdmin
                 ->end()
                 ->end();
         }
+    }
+
+    public function prePersist($object)
+    {
+        $password = $this->generateRandomString();
+        $object->setPlainPassword($password);
+        $this->sendPasswordEmail($password, $object->getEmail(), $object->getUsername());
+    }
+
+    private function sendPasswordEmail($newPassword, $email, $username)
+    {
+        $container = $this->getConfigurationPool()->getContainer();
+
+        /* @var $mail \Swift_Message */
+        $mail = \Swift_Message::newInstance()
+            ->setSubject("Insider - new account")
+            ->setFrom('insider@contact.com')
+            ->setTo($email)
+            ->setBody($container->get('twig')
+                ->render('UserBundle:Admin:User/new_account_email.html.twig', array(
+                    'password' => $newPassword,
+                    'username' =>$username)
+                ), 'text/html');
+
+        $container->get('mailer')->send($mail);
+    }
+
+    private function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }
