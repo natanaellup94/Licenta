@@ -42,16 +42,26 @@
                         <a class="nav-link" href="{{ url('sonata_admin_dashboard') }}">Admin panel</a>
                     </li>
                 {% endif %}
+
+              <a class="nav-link" href="{{ url('fos_user_change_password') }}">Change password</a>
             </ul>
         </div>
         {% if app.user is defined %}
             <!-- Collapsible content -->
             <div class="pull-right">
-                Hy, {{ app.user.username }}
+                <ul class="navbar-nav mr-auto">
 
-                <a href="{{ url(('fos_user_security_logout')) }}">
-                    <button class="btn btn-danger">Log out</button>
-                </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style="margin-top: 10px;" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hy, {{ app.user.username }}</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ url('fos_user_change_password') }}">Change password</a>
+                        </div>
+                    </li>
+
+                    <a href="{{ url(('fos_user_security_logout')) }}">
+                        <button class="btn btn-danger">Log out</button>
+                    </a>
+                </ul>
             </div>
         {% endif %}
     </nav>

@@ -15,6 +15,15 @@ label.error{
     border-radius: 10px;
 }
 
+.error ul{
+    background-color: #f56954;
+    color: #fff;
+    padding: 5px 10px;
+    margin-top: 2px;
+    border-radius: 10px;
+    width: 50%;
+}
+
 /**
     UserBundle pages.
  */
