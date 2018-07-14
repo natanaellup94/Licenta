@@ -142,20 +142,8 @@ class UserAdmin extends BaseUserAdmin
             )
             ->end()
             ->with('Profile')
-            ->add(
-                'dateOfBirth',
-                'sonata_type_date_picker',
-                array(
-                    'years'       => range(1900, $now->format('Y')),
-                    'dp_min_date' => '1-1-1900',
-                    'dp_max_date' => $now->format('c'),
-                    'required'    => false,
-                )
-            )
             ->add('firstname', null, array('required' => false))
             ->add('lastname', null, array('required' => false))
-            ->add('website', 'url', array('required' => false))
-            ->add('biography', 'text', array('required' => false))
             ->add(
                 'gender',
                 'choice',
@@ -166,9 +154,6 @@ class UserAdmin extends BaseUserAdmin
                     'placeholder'        => 'Please select a gender'
                 )
             )
-            ->add('locale', 'locale', array('required' => false))
-            ->add('timezone', 'timezone', array('required' => false))
-            ->add('phone')
             ->end()
             ->end();
 
@@ -177,9 +162,7 @@ class UserAdmin extends BaseUserAdmin
                 ->tab('Security')
                 ->with('Status')
                 ->add('locked', null, array('required' => false))
-                ->add('expired', null, array('required' => false))
                 ->add('enabled', null, array('required' => false))
-                ->add('credentialsExpired', null, array('required' => false))
                 ->end()
                 ->with('Security')
                 ->add(
@@ -238,6 +221,6 @@ class UserAdmin extends BaseUserAdmin
         for ($i = 0; $i < $length; $i++) {
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
-        return $randomString;
+        return $randomString.'1Aa';
     }
 }

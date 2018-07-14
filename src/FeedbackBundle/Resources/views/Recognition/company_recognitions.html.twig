@@ -7,20 +7,26 @@
       <div class="card">
         <div class="card-body">
           <h4 style="text-align: center; margin-bottom: 30px;">Company recognitions</h4>
-          {% for recognition in currentRecognitions %}
-            {{ include('@Feedback/Recognition/recognition_element.html.twig', {recognition: recognition}) }}
-          {% endfor %}
+          {% if currentRecognitions|length > 0 %}
+            {% for recognition in currentRecognitions %}
+              {{ include('@Feedback/Recognition/recognition_element.html.twig', {recognition: recognition}) }}
+            {% endfor %}
 
-          <!--Pagination-->
-          <nav aria-label="pagination example" style="margin-left: 40%;">
-            <ul class="pagination pg-blue">
-              {% for page in 1..noOfPages %}
-                <li class="page-item {% if page == currentPage %}{{ 'active' }}{% endif %}">
-                  <a class="page-link" href="{{ url('show_company_recognition_action', {page: page}) }}">{{ page }}
-                    {% if page == currentPage %}<span class="sr-only">(current)</span>{% endif %}
-                  </a>
-                </li>
-              {% endfor %}
+            <!--Pagination-->
+            <nav aria-label="pagination example" style="margin-left: 40%;">
+              <ul class="pagination pg-blue">
+                {% for page in 1..noOfPages %}
+                  <li class="page-item {% if page == currentPage %}{{ 'active' }}{% endif %}">
+                    <a class="page-link" href="{{ url('show_company_recognition_action', {page: page}) }}">{{ page }}
+                      {% if page == currentPage %}<span class="sr-only">(current)</span>{% endif %}
+                    </a>
+                  </li>
+                {% endfor %}
+                {% else %}
+                  <div class="alert alert-danger" role="alert">
+                    There are no recognitions to be shown!
+                  </div>
+                {% endif %}
             </ul>
           </nav>
         </div>

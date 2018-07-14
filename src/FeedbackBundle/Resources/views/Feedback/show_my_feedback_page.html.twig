@@ -2,7 +2,7 @@
 
 {% block content %}
   {% if finalizedSessions|length == 0 %}
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger offset-3 col-md-6" role="alert">
       There are no finalized feedback session!
     </div>
   {% else %}
@@ -26,7 +26,7 @@
             <h5>What are some things he could do better?</h5>
             <ul>
               {% for session in finalizedSessions %}
-                <li style="display:list-item;"><strong>{{ session.from.username }}</strong>{{ session.improvePoints }}</li>
+                <li style="display:list-item;"><strong>{{ session.from.username }}: </strong>{{ session.improvePoints }}</li>
               {% endfor %}
             </ul>
           </div>

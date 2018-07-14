@@ -1,7 +1,6 @@
+<h2>My active goals <strong>{% if goals|length > 1 %}({{ goals|length }} active goals){% endif %}</strong></h2>
 {% if goals|length %}
   <div class="active-goal">
-    <h2>My active goals <strong>({% if goals|length > 1 %}{{ goals|length }} active goals){% endif %}</strong></h2>
-
         {% for goal in goals %}
             <div class="goal-element">
                 {{ goal.title }}

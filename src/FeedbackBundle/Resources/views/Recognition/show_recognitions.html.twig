@@ -1,4 +1,10 @@
 <h2>Latest recognitions</h2>
+{% if recognitions|length > 0 %}
 {% for recognition in recognitions %}
     {{ include('@Feedback/Recognition/recognition_element.html.twig', {recognition: recognition}) }}
 {% endfor %}
+{% else %}
+    <div class="alert alert-danger" role="alert">
+        There are no recognitions to be shown!
+    </div>
+{% endif %}
