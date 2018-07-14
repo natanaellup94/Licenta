@@ -15,13 +15,15 @@
             <!--Pagination-->
             <nav aria-label="pagination example" style="margin-left: 40%;">
               <ul class="pagination pg-blue">
-                {% for page in 1..noOfPages %}
-                  <li class="page-item {% if page == currentPage %}{{ 'active' }}{% endif %}">
-                    <a class="page-link" href="{{ url('show_company_recognition_action', {page: page}) }}">{{ page }}
-                      {% if page == currentPage %}<span class="sr-only">(current)</span>{% endif %}
-                    </a>
-                  </li>
-                {% endfor %}
+                {% if noOfPages >= 2 %}
+                  {% for page in 1..noOfPages %}
+                    <li class="page-item {% if page == currentPage %}{{ 'active' }}{% endif %}">
+                      <a class="page-link" href="{{ url('show_company_recognition_action', {page: page}) }}">{{ page }}
+                        {% if page == currentPage %}<span class="sr-only">(current)</span>{% endif %}
+                      </a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
                 {% else %}
                   <div class="alert alert-danger" role="alert">
                     There are no recognitions to be shown!
